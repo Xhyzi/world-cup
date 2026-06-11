@@ -1,0 +1,61 @@
+[
+  { "id": "MEX", "name": "México", "countryCode": "MX", "group": "A" },
+  { "id": "ZAF", "name": "Sudáfrica", "countryCode": "ZA", "group": "A" },
+  { "id": "KOR", "name": "Corea del Sur", "countryCode": "KR", "group": "A" },
+  { "id": "CZE", "name": "Rep. Checa", "countryCode": "CZ", "group": "A" },
+
+  { "id": "CAN", "name": "Canadá", "countryCode": "CA", "group": "B" },
+  { "id": "BIH", "name": "Bosnia-Herzegovina", "countryCode": "BA", "group": "B" },
+  { "id": "QAT", "name": "Qatar", "countryCode": "QA", "group": "B" },
+  { "id": "SUI", "name": "Suiza", "countryCode": "CH", "group": "B" },
+
+  { "id": "BRA", "name": "Brasil", "countryCode": "BR", "group": "C" },
+  { "id": "MAR", "name": "Marruecos", "countryCode": "MA", "group": "C" },
+  { "id": "HAI", "name": "Haití", "countryCode": "HT", "group": "C" },
+  { "id": "SCO", "name": "Escocia", "countryCode": "GB-SCT", "group": "C" },
+
+  { "id": "USA", "name": "Estados Unidos", "countryCode": "US", "group": "D" },
+  { "id": "PAR", "name": "Paraguay", "countryCode": "PY", "group": "D" },
+  { "id": "AUS", "name": "Australia", "countryCode": "AU", "group": "D" },
+  { "id": "TUR", "name": "Turquía", "countryCode": "TR", "group": "D" },
+
+  { "id": "GER", "name": "Alemania", "countryCode": "DE", "group": "E" },
+  { "id": "CUW", "name": "Curazao", "countryCode": "CW", "group": "E" },
+  { "id": "CIV", "name": "Costa de Marfil", "countryCode": "CI", "group": "E" },
+  { "id": "ECU", "name": "Ecuador", "countryCode": "EC", "group": "E" },
+
+  { "id": "NED", "name": "Países Bajos", "countryCode": "NL", "group": "F" },
+  { "id": "JPN", "name": "Japón", "countryCode": "JP", "group": "F" },
+  { "id": "SWE", "name": "Suecia", "countryCode": "SE", "group": "F" },
+  { "id": "TUN", "name": "Túnez", "countryCode": "TN", "group": "F" },
+
+  { "id": "BEL", "name": "Bélgica", "countryCode": "BE", "group": "G" },
+  { "id": "EGY", "name": "Egipto", "countryCode": "EG", "group": "G" },
+  { "id": "IRN", "name": "Irán", "countryCode": "IR", "group": "G" },
+  { "id": "NZL", "name": "Nueva Zelanda", "countryCode": "NZ", "group": "G" },
+
+  { "id": "ESP", "name": "España", "countryCode": "ES", "group": "H" },
+  { "id": "CPV", "name": "Cabo Verde", "countryCode": "CV", "group": "H" },
+  { "id": "KSA", "name": "Arabia Saudí", "countryCode": "SA", "group": "H" },
+  { "id": "URU", "name": "Uruguay", "countryCode": "UY", "group": "H" },
+
+  { "id": "FRA", "name": "Francia", "countryCode": "FR", "group": "I" },
+  { "id": "SEN", "name": "Senegal", "countryCode": "SN", "group": "I" },
+  { "id": "IRQ", "name": "Irak", "countryCode": "IQ", "group": "I" },
+  { "id": "NOR", "name": "Noruega", "countryCode": "NO", "group": "I" },
+
+  { "id": "ARG", "name": "Argentina", "countryCode": "AR", "group": "J" },
+  { "id": "ALG", "name": "Argelia", "countryCode": "DZ", "group": "J" },
+  { "id": "AUT", "name": "Austria", "countryCode": "AT", "group": "J" },
+  { "id": "JOR", "name": "Jordania", "countryCode": "JO", "group": "J" },
+
+  { "id": "POR", "name": "Portugal", "countryCode": "PT", "group": "K" },
+  { "id": "COD", "name": "RD Congo", "countryCode": "CD", "group": "K" },
+  { "id": "UZB", "name": "Uzbekistán", "countryCode": "UZ", "group": "K" },
+  { "id": "COL", "name": "Colombia", "countryCode": "CO", "group": "K" },
+
+  { "id": "ENG", "name": "Inglaterra", "countryCode": "GB-ENG", "group": "L" },
+  { "id": "CRO", "name": "Croacia", "countryCode": "HR", "group": "L" },
+  { "id": "GHA", "name": "Ghana", "countryCode": "GH", "group": "L" },
+  { "id": "PAN", "name": "Panamá", "countryCode": "PA", "group": "L" }
+]
