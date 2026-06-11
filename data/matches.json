@@ -3,13 +3,13 @@
     {
       "id": 537327,
       "utcDate": "2026-06-11T19:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "A",
       "homeTeam": "MEX",
       "awayTeam": "ZAF",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 2,
+      "awayScore": 0
     },
     {
       "id": 537328,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-11T11:11:40.812Z"
+  "lastUpdated": "2026-06-11T22:48:39.934Z"
 }
