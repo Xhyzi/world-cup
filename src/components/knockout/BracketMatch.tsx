@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { KnockoutMatch, Participant, Team } from "../../types";
 import { ROUND_POINTS } from "../../utils/scoring";
+import { buildTeamMap } from "../../utils/teamIds";
 import { FlagIcon } from "../FlagIcon";
 
 interface BracketMatchProps {
@@ -14,7 +15,7 @@ export function BracketMatch({
   participants,
   teams,
 }: BracketMatchProps) {
-  const teamMap = Object.fromEntries(teams.map((t) => [t.id, t]));
+  const teamMap = buildTeamMap(teams);
 
   const homeTeam = match.homeTeam ? teamMap[match.homeTeam] : null;
   const awayTeam = match.awayTeam ? teamMap[match.awayTeam] : null;

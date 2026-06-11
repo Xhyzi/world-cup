@@ -17,6 +17,14 @@ const MATCHES_PATH = path.join(__dirname, '..', 'public', 'data', 'matches.json'
 // WC 2026 competition ID in football-data.org (update if needed)
 const COMPETITION_ID = 'WC';
 
+// football-data.org TLA codes that differ from our internal team ids
+const TEAM_ID_ALIASES = { RSA: 'ZAF', URY: 'URU' };
+
+function normalizeTeamId(id) {
+  if (!id) return null;
+  return TEAM_ID_ALIASES[id] ?? id;
+}
+
 function fetchJson(url, headers) {
   return new Promise((resolve, reject) => {
     const req = https.get(url, { headers }, (res) => {
@@ -83,8 +91,8 @@ async function main() {
       const group = standing.group?.replace('GROUP_', '');
       if (!group || !current.groupResults[group]) continue;
       current.groupResults[group].standings = standing.table.map((row) => {
-        // Map team name to our teamId — best effort by team short name
-        return row.team.tla ?? row.team.shortName;
+        const tla = row.team.tla ?? row.team.shortName;
+        return normalizeTeamId(tla) ?? tla;
       });
       current.groupResults[group].completed = standing.table.every(
         (row) => row.playedGames >= 3
@@ -120,11 +128,13 @@ async function main() {
       const matchId = `${round === 'third' || round === 'final' ? round : round}_m${i + 1}`;
       const existing = current.knockoutMatches.find((km) => km.id === matchId);
       if (!existing) return;
-      existing.homeTeam = m.homeTeam?.tla ?? null;
-      existing.awayTeam = m.awayTeam?.tla ?? null;
+      existing.homeTeam = normalizeTeamId(m.homeTeam?.tla);
+      existing.awayTeam = normalizeTeamId(m.awayTeam?.tla);
       existing.completed = m.status === 'FINISHED';
       existing.winner = m.status === 'FINISHED'
-        ? (m.score.winner === 'HOME_TEAM' ? m.homeTeam?.tla : m.awayTeam?.tla)
+        ? normalizeTeamId(
+            m.score.winner === 'HOME_TEAM' ? m.homeTeam?.tla : m.awayTeam?.tla,
+          )
         : null;
     });
   }
@@ -136,8 +146,8 @@ async function main() {
       status: m.status,
       stage: m.stage,
       group: m.group?.replace('GROUP_', '') ?? null,
-      homeTeam: m.homeTeam?.tla ?? null,
-      awayTeam: m.awayTeam?.tla ?? null,
+      homeTeam: normalizeTeamId(m.homeTeam?.tla),
+      awayTeam: normalizeTeamId(m.awayTeam?.tla),
       homeScore:
         m.score?.fullTime?.home ??
         m.score?.regularTime?.home ??

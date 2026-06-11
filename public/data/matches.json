@@ -7,7 +7,7 @@
       "stage": "GROUP_STAGE",
       "group": "A",
       "homeTeam": "MEX",
-      "awayTeam": "RSA",
+      "awayTeam": "ZAF",
       "homeScore": null,
       "awayScore": null
     },
@@ -161,7 +161,7 @@
       "stage": "GROUP_STAGE",
       "group": "H",
       "homeTeam": "KSA",
-      "awayTeam": "URY",
+      "awayTeam": "URU",
       "homeScore": null,
       "awayScore": null
     },
@@ -271,7 +271,7 @@
       "stage": "GROUP_STAGE",
       "group": "A",
       "homeTeam": "CZE",
-      "awayTeam": "RSA",
+      "awayTeam": "ZAF",
       "homeScore": null,
       "awayScore": null
     },
@@ -424,7 +424,7 @@
       "status": "TIMED",
       "stage": "GROUP_STAGE",
       "group": "H",
-      "homeTeam": "URY",
+      "homeTeam": "URU",
       "awayTeam": "CPV",
       "homeScore": null,
       "awayScore": null
@@ -589,7 +589,7 @@
       "status": "TIMED",
       "stage": "GROUP_STAGE",
       "group": "A",
-      "homeTeam": "RSA",
+      "homeTeam": "ZAF",
       "awayTeam": "KOR",
       "homeScore": null,
       "awayScore": null
@@ -688,7 +688,7 @@
       "status": "TIMED",
       "stage": "GROUP_STAGE",
       "group": "H",
-      "homeTeam": "URY",
+      "homeTeam": "URU",
       "awayTeam": "ESP",
       "homeScore": null,
       "awayScore": null

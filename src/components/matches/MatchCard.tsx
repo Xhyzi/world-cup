@@ -1,6 +1,7 @@
 import type { FixtureMatch, Team } from "../../types";
 import { FlagIcon } from "../FlagIcon";
 import { formatMatchTime } from "../../utils/dates";
+import { buildTeamMap } from "../../utils/teamIds";
 
 const STAGE_LABELS: Record<string, string> = {
   GROUP_STAGE: "Fase de grupos",
@@ -19,7 +20,7 @@ interface MatchCardProps {
 }
 
 export function MatchCard({ match, teams, showTime = true }: MatchCardProps) {
-  const teamMap = Object.fromEntries(teams.map((t) => [t.id, t]));
+  const teamMap = buildTeamMap(teams);
   const homeTeam = match.homeTeam ? teamMap[match.homeTeam] : null;
   const awayTeam = match.awayTeam ? teamMap[match.awayTeam] : null;
 
