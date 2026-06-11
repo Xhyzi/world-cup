@@ -18,12 +18,26 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Check API key
+        id: api
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: |
+          if [ -n "$FOOTBALL_API_KEY" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "No FOOTBALL_API_KEY repository secret set. Skipping update and deploy."
+          fi
+
       - name: Fetch results from football-data.org
+        if: steps.api.outputs.configured == 'true'
         env:
           FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
         run: node scripts/fetch-results.js
 
       - name: Commit updated results
+        if: steps.api.outputs.configured == 'true'
         id: commit
         run: |
           git config user.email "bot@github.com"
@@ -38,16 +52,18 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      # Always redeploy after a successful fetch so gh-pages stays in sync with
+      # main even when the API returns no new data (e.g. gh-pages was stale).
       - name: Install dependencies
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.api.outputs.configured == 'true'
         run: npm install --no-audit --no-fund
 
       - name: Build
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.api.outputs.configured == 'true'
         run: npm run build
 
       - name: Deploy to gh-pages
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.api.outputs.configured == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
