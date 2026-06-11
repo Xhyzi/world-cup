@@ -1,0 +1,88 @@
+{
+  "participants": [
+    {
+      "id": "p1",
+      "name": "Samueli",
+      "color": "#3B82F6",
+      "groupPredictions": {
+        "A": ["MEX", "KOR", "ZAF", "CZE"],
+        "B": ["CAN", "SUI", "BIH", "QAT"],
+        "C": ["BRA", "MAR", "SCO", "HAI"],
+        "D": ["USA", "TUR", "PAR", "AUS"],
+        "E": ["GER", "ECU", "CIV", "CUW"],
+        "F": ["NED", "JPN", "SWE", "TUN"],
+        "G": ["BEL", "IRN", "EGY", "NZL"],
+        "H": ["ESP", "URU", "KSA", "CPV"],
+        "I": ["FRA", "SEN", "NOR", "IRQ"],
+        "J": ["ARG", "AUT", "ALG", "JOR"],
+        "K": ["POR", "COL", "COD", "UZB"],
+        "L": ["ENG", "CRO", "GHA", "PAN"]
+      },
+      "bestThirdPredictions": ["KOR", "SUI", "AUS", "JPN", "SEN", "COL", "CRO", "URU"],
+      "knockoutPredictions": {}
+    },
+    {
+      "id": "p2",
+      "name": "RobertoOO",
+      "color": "#EF4444",
+      "groupPredictions": {
+        "A": ["MEX", "ZAF", "KOR", "CZE"],
+        "B": ["SUI", "CAN", "QAT", "BIH"],
+        "C": ["BRA", "MAR", "HAI", "SCO"],
+        "D": ["USA", "AUS", "PAR", "TUR"],
+        "E": ["GER", "CIV", "ECU", "CUW"],
+        "F": ["NED", "SWE", "JPN", "TUN"],
+        "G": ["BEL", "EGY", "NZL", "IRN"],
+        "H": ["ESP", "URU", "CPV", "KSA"],
+        "I": ["FRA", "NOR", "SEN", "IRQ"],
+        "J": ["ARG", "AUT", "JOR", "ALG"],
+        "K": ["POR", "COL", "UZB", "COD"],
+        "L": ["ENG", "CRO", "PAN", "GHA"]
+      },
+      "bestThirdPredictions": ["ZAF", "CAN", "TUR", "SWE", "NOR", "UZB", "PAN", "EGY"],
+      "knockoutPredictions": {}
+    },
+    {
+      "id": "p3",
+      "name": "Samuel",
+      "color": "#F59E0B",
+      "groupPredictions": {
+        "A": ["KOR", "MEX", "CZE", "ZAF"],
+        "B": ["CAN", "BIH", "SUI", "QAT"],
+        "C": ["MAR", "BRA", "SCO", "HAI"],
+        "D": ["USA", "PAR", "TUR", "AUS"],
+        "E": ["GER", "CIV", "ECU", "CUW"],
+        "F": ["JPN", "NED", "TUN", "SWE"],
+        "G": ["BEL", "IRN", "EGY", "NZL"],
+        "H": ["ESP", "KSA", "URU", "CPV"],
+        "I": ["FRA", "SEN", "IRQ", "NOR"],
+        "J": ["ARG", "ALG", "AUT", "JOR"],
+        "K": ["POR", "COD", "COL", "UZB"],
+        "L": ["ENG", "GHA", "CRO", "PAN"]
+      },
+      "bestThirdPredictions": ["KOR", "BIH", "PAR", "SWE", "NOR", "COL", "GHA", "KSA"],
+      "knockoutPredictions": {}
+    },
+    {
+      "id": "p4",
+      "name": "Eva",
+      "color": "#8B5CF6",
+      "groupPredictions": {
+        "A": ["MEX", "KOR", "CZE", "ZAF"],
+        "B": ["CAN", "SUI", "QAT", "BIH"],
+        "C": ["BRA", "SCO", "MAR", "HAI"],
+        "D": ["USA", "TUR", "AUS", "PAR"],
+        "E": ["GER", "ECU", "CIV", "CUW"],
+        "F": ["NED", "JPN", "TUN", "SWE"],
+        "G": ["BEL", "EGY", "IRN", "NZL"],
+        "H": ["URU", "ESP", "CPV", "KSA"],
+        "I": ["FRA", "SEN", "NOR", "IRQ"],
+        "J": ["ARG", "AUT", "ALG", "JOR"],
+        "K": ["POR", "COL", "COD", "UZB"],
+        "L": ["ENG", "CRO", "GHA", "PAN"]
+      },
+      "bestThirdPredictions": ["CZE", "QAT", "SCO", "TUN", "IRQ", "JOR", "COD", "CPV"],
+      "knockoutPredictions": {}
+    }
+  ]
+}
