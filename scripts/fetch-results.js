@@ -129,8 +129,6 @@ async function main() {
     });
   }
 
-  current.lastUpdated = new Date().toISOString();
-
   const matchesData = {
     matches: matches.map((m) => ({
       id: m.id,
@@ -151,12 +149,29 @@ async function main() {
         m.score?.halfTime?.away ??
         null,
     })),
-    lastUpdated: current.lastUpdated,
   };
+
+  const previousResults = JSON.parse(fs.readFileSync(RESULTS_PATH, 'utf8'));
+  const previousMatches = JSON.parse(fs.readFileSync(MATCHES_PATH, 'utf8'));
+  const resultsChanged =
+    JSON.stringify({ ...current, lastUpdated: undefined }) !==
+    JSON.stringify({ ...previousResults, lastUpdated: undefined });
+  const matchesChanged =
+    JSON.stringify({ ...matchesData, lastUpdated: undefined }) !==
+    JSON.stringify({ ...previousMatches, lastUpdated: undefined });
+
+  if (!resultsChanged && !matchesChanged) {
+    console.log('No data changes detected. Skipping file write.');
+    process.exit(0);
+  }
+
+  const lastUpdated = new Date().toISOString();
+  current.lastUpdated = lastUpdated;
+  matchesData.lastUpdated = lastUpdated;
 
   fs.writeFileSync(RESULTS_PATH, JSON.stringify(current, null, 2));
   fs.writeFileSync(MATCHES_PATH, JSON.stringify(matchesData, null, 2));
-  console.log('results.json and matches.json updated at', current.lastUpdated);
+  console.log('results.json and matches.json updated at', lastUpdated);
 }
 
 main().catch((err) => {

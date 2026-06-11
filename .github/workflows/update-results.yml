@@ -24,8 +24,31 @@ jobs:
         run: node scripts/fetch-results.js
 
       - name: Commit updated results
+        id: commit
         run: |
           git config user.email "bot@github.com"
           git config user.name "Results Bot"
           git add public/data/results.json public/data/matches.json
-          git diff --staged --quiet || (git commit -m "chore: update results [skip ci]" && git push)
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No file changes to commit."
+          else
+            git commit -m "chore: update results [skip ci]"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        if: steps.commit.outputs.changed == 'true'
+        run: npm install --no-audit --no-fund
+
+      - name: Build
+        if: steps.commit.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy to gh-pages
+        if: steps.commit.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
