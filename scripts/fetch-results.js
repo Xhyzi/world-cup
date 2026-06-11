@@ -3,9 +3,12 @@
 // Requires env var: FOOTBALL_API_KEY
 // Register free at: https://www.football-data.org/
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
+import fs from 'node:fs';
+import path from 'node:path';
+import https from 'node:https';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const API_KEY = process.env.FOOTBALL_API_KEY;
 const RESULTS_PATH = path.join(__dirname, '..', 'public', 'data', 'results.json');
