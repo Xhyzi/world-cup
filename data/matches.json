@@ -14,13 +14,13 @@
     {
       "id": 537328,
       "utcDate": "2026-06-12T02:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "A",
       "homeTeam": "KOR",
       "awayTeam": "CZE",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": 537333,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-11T22:48:39.934Z"
+  "lastUpdated": "2026-06-12T05:27:59.533Z"
 }
