@@ -36,13 +36,13 @@
     {
       "id": 537345,
       "utcDate": "2026-06-13T01:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "D",
       "homeTeam": "USA",
       "awayTeam": "PAR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 4,
+      "awayScore": 1
     },
     {
       "id": 537334,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-12T22:21:49.254Z"
+  "lastUpdated": "2026-06-13T05:18:11.018Z"
 }
