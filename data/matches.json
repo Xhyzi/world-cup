@@ -95,7 +95,7 @@
       "stage": "GROUP_STAGE",
       "group": "E",
       "homeTeam": "GER",
-      "awayTeam": "CUR",
+      "awayTeam": "CUW",
       "homeScore": null,
       "awayScore": null
     },
@@ -113,7 +113,7 @@
     {
       "id": 537352,
       "utcDate": "2026-06-14T23:00:00Z",
-      "status": "SCHEDULED",
+      "status": "TIMED",
       "stage": "GROUP_STAGE",
       "group": "E",
       "homeTeam": "CIV",
@@ -381,7 +381,7 @@
       "stage": "GROUP_STAGE",
       "group": "E",
       "homeTeam": "ECU",
-      "awayTeam": "CUR",
+      "awayTeam": "CUW",
       "homeScore": null,
       "awayScore": null
     },
@@ -611,7 +611,7 @@
       "status": "TIMED",
       "stage": "GROUP_STAGE",
       "group": "E",
-      "homeTeam": "CUR",
+      "homeTeam": "CUW",
       "awayTeam": "CIV",
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-13T15:40:38.960Z"
+  "lastUpdated": "2026-06-13T17:18:20.667Z"
 }
