@@ -80,13 +80,13 @@
     {
       "id": 537346,
       "utcDate": "2026-06-14T04:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "D",
       "homeTeam": "AUS",
       "awayTeam": "TUR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 2,
+      "awayScore": 0
     },
     {
       "id": 537351,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-14T03:32:22.124Z"
+  "lastUpdated": "2026-06-14T08:11:35.225Z"
 }
