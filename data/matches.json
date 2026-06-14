@@ -102,13 +102,13 @@
     {
       "id": 537357,
       "utcDate": "2026-06-14T20:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "F",
       "homeTeam": "NED",
       "awayTeam": "JPN",
-      "homeScore": 0,
-      "awayScore": 0
+      "homeScore": 2,
+      "awayScore": 2
     },
     {
       "id": 537352,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-14T21:06:05.783Z"
+  "lastUpdated": "2026-06-14T23:04:05.600Z"
 }
