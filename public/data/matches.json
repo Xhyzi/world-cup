@@ -30,8 +30,8 @@
       "group": "B",
       "homeTeam": "CAN",
       "awayTeam": "BIH",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 1,
+      "awayScore": 1
     },
     {
       "id": 537345,
@@ -102,13 +102,13 @@
     {
       "id": 537357,
       "utcDate": "2026-06-14T20:00:00Z",
-      "status": "TIMED",
+      "status": "PAUSED",
       "stage": "GROUP_STAGE",
       "group": "F",
       "homeTeam": "NED",
       "awayTeam": "JPN",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537352,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-14T19:18:52.949Z"
+  "lastUpdated": "2026-06-14T21:06:05.783Z"
 }
