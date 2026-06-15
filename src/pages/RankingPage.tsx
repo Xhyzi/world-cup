@@ -3,7 +3,7 @@ import { computeLeaderboard, MAX_SCORE } from "../utils/scoring";
 import { Podium, RankingTable } from "../components/ranking/RankingComponents";
 
 export function RankingPage() {
-  const { participants, results, loading, error } = useData();
+  const { participants, results, groups, matches, loading, error } = useData();
 
   if (loading) {
     return (
@@ -23,7 +23,7 @@ export function RankingPage() {
     );
   }
 
-  const leaderboard = computeLeaderboard(participants, results);
+  const leaderboard = computeLeaderboard(participants, results, groups, matches);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -45,7 +45,7 @@ export function RankingPage() {
             <span className="text-indigo-600 dark:text-blue-400">Consolidado</span>
             {" = grupos cerrados · "}
             <span className="text-amber-600 dark:text-amber-400">Temporal</span>
-            {" = clasificación actual"}
+            {" = clasificación actual tras 1ª jornada completa"}
           </p>
         </div>
         <div className="text-right text-sm text-gray-400 dark:text-gray-500">

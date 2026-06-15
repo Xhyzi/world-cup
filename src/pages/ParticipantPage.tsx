@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import { computeScore, scoreGroupForMode, MAX_SCORE } from "../utils/scoring";
+import { resolveGroupStandings } from "../utils/standings";
 import {
   GroupPredictionCard,
   BestThirdsPanel,
@@ -13,7 +14,7 @@ type Tab = "grupos" | "terceros" | "eliminatoria";
 
 export function ParticipantPage() {
   const { id } = useParams<{ id: string }>();
-  const { participants, results, teams, groups, loading, error } = useData();
+  const { participants, results, teams, groups, matches, loading, error } = useData();
   const [activeTab, setActiveTab] = useState<Tab>("grupos");
 
   if (loading) {
@@ -48,8 +49,20 @@ export function ParticipantPage() {
     );
   }
 
+  const temporalSnapshot = Object.fromEntries(
+    groups.map((group) => [
+      group.id,
+      resolveGroupStandings(group, results, matches),
+    ]),
+  );
+
   const score = computeScore(participant, results, "consolidated");
-  const temporalScore = computeScore(participant, results, "temporal");
+  const temporalScore = computeScore(
+    participant,
+    results,
+    "temporal",
+    temporalSnapshot,
+  );
   const rank =
     participants
       .map((p) => computeScore(p, results, "consolidated").total)
@@ -57,7 +70,7 @@ export function ParticipantPage() {
       .indexOf(score.total) + 1;
   const temporalRank =
     participants
-      .map((p) => computeScore(p, results, "temporal").total)
+      .map((p) => computeScore(p, results, "temporal", temporalSnapshot).total)
       .sort((a, b) => b - a)
       .indexOf(temporalScore.total) + 1;
 
@@ -213,21 +226,20 @@ export function ParticipantPage() {
       {activeTab === "grupos" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {groups.map((group) => {
-            const gr = results.groupResults[group.id] ?? {
+            const stored = results.groupResults[group.id] ?? {
               standings: [],
               completed: false,
             };
+            const temporal = temporalSnapshot[group.id];
             const predicted = participant.groupPredictions[group.id] ?? [];
             const consolidated = scoreGroupForMode(
               predicted,
-              gr.standings,
-              gr.completed,
+              { ...stored, firstRoundComplete: temporal.firstRoundComplete },
               "consolidated",
             );
-            const temporal = scoreGroupForMode(
+            const temporalScoreGroup = scoreGroupForMode(
               predicted,
-              gr.standings,
-              gr.completed,
+              temporal,
               "temporal",
             );
             return (
@@ -236,13 +248,14 @@ export function ParticipantPage() {
                 groupId={group.id}
                 groupName={group.name}
                 predicted={predicted}
-                actual={gr.standings}
-                completed={gr.completed}
+                actual={temporal.standings}
+                completed={stored.completed}
                 teams={teams}
                 points={consolidated.points}
                 perfectBonus={consolidated.perfectBonus}
-                temporalPoints={temporal.points}
-                temporalPerfectBonus={temporal.perfectBonus}
+                temporalPoints={temporalScoreGroup.points}
+                temporalPerfectBonus={temporalScoreGroup.perfectBonus}
+                hasTemporalStandings={temporal.firstRoundComplete}
               />
             );
           })}

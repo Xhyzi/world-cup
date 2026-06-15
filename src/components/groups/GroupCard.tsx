@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import type { Group, Participant, Results, Team } from "../../types";
+import type { Group, MatchesData, Participant, Results, Team } from "../../types";
+import { resolveGroupStandings } from "../../utils/standings";
 import { FlagIcon } from "../FlagIcon";
 
 interface GroupCardProps {
   group: Group;
   participants: Participant[];
   results: Results;
+  matches: MatchesData;
   teams: Team[];
 }
 
@@ -13,17 +15,20 @@ export function GroupCard({
   group,
   participants,
   results,
+  matches,
   teams,
 }: GroupCardProps) {
-  const gr = results.groupResults[group.id] ?? {
+  const stored = results.groupResults[group.id] ?? {
     standings: [],
     completed: false,
   };
+  const effective = resolveGroupStandings(group, results, matches);
   const teamMap = Object.fromEntries(teams.map((t) => [t.id, t]));
 
   const displayTeams =
-    gr.standings.length >= 4 ? gr.standings : group.teamIds;
-  const hasCurrentStandings = gr.standings.length >= 4;
+    effective.standings.length >= 4 ? effective.standings : group.teamIds;
+  const hasTemporalStandings =
+    effective.firstRoundComplete && effective.standings.length >= 4;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
@@ -32,16 +37,16 @@ export function GroupCard({
         <h3 className="font-bold text-white text-sm">{group.name}</h3>
         <span
           className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-            gr.completed
+            stored.completed
               ? "bg-indigo-500 text-white"
-              : hasCurrentStandings
+              : hasTemporalStandings
                 ? "bg-amber-500/80 text-white"
                 : "bg-white/20 text-white/80"
           }`}
         >
-          {gr.completed
+          {stored.completed
             ? "Completado"
-            : hasCurrentStandings
+            : hasTemporalStandings
               ? "En juego"
               : "Por jugar"}
         </span>
@@ -76,14 +81,15 @@ export function GroupCard({
                   const pred = p.groupPredictions[group.id] ?? [];
                   const predictedPos = pred.indexOf(teamId);
                   const isCorrect =
-                    (gr.completed || hasCurrentStandings) && predictedPos === pos;
+                    (stored.completed || hasTemporalStandings) &&
+                    predictedPos === pos;
                   const isPasses =
-                    (gr.completed || hasCurrentStandings) &&
+                    (stored.completed || hasTemporalStandings) &&
                     pos < 2 &&
                     predictedPos >= 0 &&
                     predictedPos < 2 &&
                     predictedPos !== pos;
-                  const isPending = !gr.completed && !hasCurrentStandings;
+                  const isPending = !stored.completed && !hasTemporalStandings;
 
                   return (
                     <Link

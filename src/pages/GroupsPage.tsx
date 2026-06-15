@@ -2,7 +2,7 @@ import { useData } from "../hooks/useData";
 import { GroupCard } from "../components/groups/GroupCard";
 
 export function GroupsPage() {
-  const { groups, participants, results, teams, loading, error } = useData();
+  const { groups, participants, results, matches, teams, loading, error } = useData();
 
   if (loading) {
     return (
@@ -80,6 +80,7 @@ export function GroupsPage() {
             group={group}
             participants={participants}
             results={results}
+            matches={matches}
             teams={teams}
           />
         ))}

@@ -12,6 +12,7 @@ interface GroupPredictionCardProps {
   perfectBonus: boolean;
   temporalPoints?: number;
   temporalPerfectBonus?: boolean;
+  hasTemporalStandings?: boolean;
 }
 
 function getTeamName(id: string, teams: Team[]): string {
@@ -64,9 +65,9 @@ export function GroupPredictionCard({
   perfectBonus,
   temporalPoints = 0,
   temporalPerfectBonus = false,
+  hasTemporalStandings = false,
 }: GroupPredictionCardProps) {
-  const hasCurrentStandings = actual.length >= 4;
-  const showTemporal = !completed && hasCurrentStandings;
+  const showTemporal = !completed && hasTemporalStandings;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
@@ -90,7 +91,7 @@ export function GroupPredictionCard({
               +{temporalPoints} temp.
             </span>
           )}
-          {!completed && !hasCurrentStandings && (
+          {!completed && !hasTemporalStandings && (
             <span className="text-xs text-gray-400 dark:text-gray-500">
               En juego
             </span>

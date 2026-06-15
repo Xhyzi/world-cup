@@ -1,4 +1,17 @@
-import type { Participant, Results, ScoreBreakdown, LeaderboardEntry, RoundKey, ScoreMode } from '../types';
+import type {
+  Participant,
+  Results,
+  ScoreBreakdown,
+  LeaderboardEntry,
+  RoundKey,
+  ScoreMode,
+  Group,
+  MatchesData,
+} from '../types';
+import {
+  buildTemporalSnapshot,
+  type EffectiveGroupResult,
+} from './standings';
 
 export const ROUND_POINTS: Record<RoundKey, number> = {
   r32: 5,
@@ -26,27 +39,41 @@ export const MAX_SCORE = {
 };
 
 function groupCountsForMode(
-  gr: { standings: string[]; completed: boolean },
+  state: EffectiveGroupResult,
   mode: ScoreMode,
 ): boolean {
-  if (gr.standings.length < 4) return false;
-  return mode === 'temporal' || gr.completed;
+  if (state.standings.length < 4) return false;
+  if (mode === 'consolidated') return state.completed;
+  return state.firstRoundComplete;
+}
+
+function scoreGroupFromStandings(
+  predicted: string[],
+  standings: string[],
+): { groupPositions: number; groupPerfectBonus: number } {
+  let groupPositions = 0;
+  let allCorrect = true;
+  for (let i = 0; i < 4; i++) {
+    if (predicted[i] === standings[i]) {
+      groupPositions += 4;
+    } else {
+      allCorrect = false;
+    }
+  }
+  return {
+    groupPositions,
+    groupPerfectBonus: allCorrect ? 10 : 0,
+  };
 }
 
 /** 4 pts per correct position, +10 bonus if all 4 correct */
 export function scoreGroupPositions(predicted: string[], actual: string[]): number {
   if (actual.length < 4) return 0;
-  let pts = 0;
-  let allCorrect = true;
-  for (let i = 0; i < 4; i++) {
-    if (predicted[i] === actual[i]) {
-      pts += 4;
-    } else {
-      allCorrect = false;
-    }
-  }
-  if (allCorrect) pts += 10;
-  return pts;
+  const { groupPositions, groupPerfectBonus } = scoreGroupFromStandings(
+    predicted,
+    actual,
+  );
+  return groupPositions + groupPerfectBonus;
 }
 
 /** 8 pts per correctly predicted best third */
@@ -63,15 +90,27 @@ export function scorePasses(
   participant: Participant,
   results: Results,
   mode: ScoreMode = 'consolidated',
+  temporalSnapshot?: Record<string, EffectiveGroupResult>,
 ): number {
   const qualifiers = new Set<string>();
+
   for (const groupId of Object.keys(results.groupResults)) {
-    const gr = results.groupResults[groupId];
-    if (gr.standings.length < 2) continue;
-    if (mode === 'consolidated' && !gr.completed) continue;
-    qualifiers.add(gr.standings[0]);
-    qualifiers.add(gr.standings[1]);
+    const state =
+      mode === 'temporal' && temporalSnapshot
+        ? temporalSnapshot[groupId]
+        : {
+            ...(results.groupResults[groupId] ?? { standings: [], completed: false }),
+            firstRoundComplete: false,
+          };
+
+    if (!state || state.standings.length < 2) continue;
+    if (mode === 'consolidated' && !state.completed) continue;
+    if (mode === 'temporal' && !state.firstRoundComplete) continue;
+
+    qualifiers.add(state.standings[0]);
+    qualifiers.add(state.standings[1]);
   }
+
   results.bestThirds.forEach((t) => qualifiers.add(t));
 
   if (qualifiers.size === 0) return 0;
@@ -114,29 +153,32 @@ export function computeScore(
   participant: Participant,
   results: Results,
   mode: ScoreMode = 'consolidated',
+  temporalSnapshot?: Record<string, EffectiveGroupResult>,
 ): ScoreBreakdown {
   let groupPositions = 0;
   let groupPerfectBonus = 0;
 
-  for (const groupId of Object.keys(results.groupResults)) {
-    const gr = results.groupResults[groupId];
-    if (!groupCountsForMode(gr, mode)) continue;
+  const groupIds = Object.keys(results.groupResults);
+
+  for (const groupId of groupIds) {
+    const state: EffectiveGroupResult =
+      mode === 'temporal' && temporalSnapshot?.[groupId]
+        ? temporalSnapshot[groupId]
+        : {
+            ...(results.groupResults[groupId] ?? { standings: [], completed: false }),
+            firstRoundComplete: false,
+          };
+
+    if (!groupCountsForMode(state, mode)) continue;
+
     const pred = participant.groupPredictions[groupId] ?? [];
-    let positionPts = 0;
-    let allCorrect = true;
-    for (let i = 0; i < 4; i++) {
-      if (pred[i] === gr.standings[i]) {
-        positionPts += 4;
-      } else {
-        allCorrect = false;
-      }
-    }
-    groupPositions += positionPts;
-    if (allCorrect) groupPerfectBonus += 10;
+    const scored = scoreGroupFromStandings(pred, state.standings);
+    groupPositions += scored.groupPositions;
+    groupPerfectBonus += scored.groupPerfectBonus;
   }
 
   const bestThirds = scoreBestThirds(participant.bestThirdPredictions, results.bestThirds);
-  const passes = scorePasses(participant, results, mode);
+  const passes = scorePasses(participant, results, mode, temporalSnapshot);
   const kp = scoreKnockout(participant, results);
 
   const groupTotal = groupPositions + groupPerfectBonus + bestThirds + passes;
@@ -157,12 +199,16 @@ export function computeScore(
 
 export function computeLeaderboard(
   participants: Participant[],
-  results: Results
+  results: Results,
+  groups: Group[],
+  matches: MatchesData,
 ): LeaderboardEntry[] {
+  const temporalSnapshot = buildTemporalSnapshot(groups, results, matches);
+
   const entries: LeaderboardEntry[] = participants.map((p) => ({
     participant: p,
     score: computeScore(p, results, 'consolidated'),
-    temporalScore: computeScore(p, results, 'temporal'),
+    temporalScore: computeScore(p, results, 'temporal', temporalSnapshot),
     rank: 0,
     temporalRank: 0,
   }));
@@ -186,23 +232,16 @@ export function computeLeaderboard(
 
 export function scoreGroupForMode(
   predicted: string[],
-  standings: string[],
-  completed: boolean,
+  state: EffectiveGroupResult,
   mode: ScoreMode,
 ): { points: number; perfectBonus: boolean } {
-  if (!groupCountsForMode({ standings, completed }, mode)) {
+  if (!groupCountsForMode(state, mode)) {
     return { points: 0, perfectBonus: false };
   }
 
-  let points = 0;
-  let allCorrect = true;
-  for (let i = 0; i < 4; i++) {
-    if (predicted[i] === standings[i]) points += 4;
-    else allCorrect = false;
-  }
-  if (allCorrect) {
-    points += 10;
-    return { points, perfectBonus: true };
-  }
-  return { points, perfectBonus: false };
+  const scored = scoreGroupFromStandings(predicted, state.standings);
+  return {
+    points: scored.groupPositions + scored.groupPerfectBonus,
+    perfectBonus: scored.groupPerfectBonus > 0,
+  };
 }
