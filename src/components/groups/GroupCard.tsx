@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import type { Group, MatchesData, Participant, Results, Team } from "../../types";
-import { resolveGroupStandings } from "../../utils/standings";
+import {
+  computeGroupStatsFromMatches,
+  hasFinishedGroupMatches,
+  resolveGroupStandings,
+} from "../../utils/standings";
 import { FlagIcon } from "../FlagIcon";
 
 interface GroupCardProps {
@@ -29,6 +33,16 @@ export function GroupCard({
     effective.standings.length >= 4 ? effective.standings : group.teamIds;
   const hasTemporalStandings =
     effective.firstRoundComplete && effective.standings.length >= 4;
+  const showMatchStats = hasFinishedGroupMatches(group.id, matches.matches);
+  const teamStats = showMatchStats
+    ? Object.fromEntries(
+        computeGroupStatsFromMatches(
+          group.id,
+          group.teamIds,
+          matches.matches,
+        ).map((row) => [row.teamId, row]),
+      )
+    : {};
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
@@ -53,25 +67,68 @@ export function GroupCard({
       </div>
 
       {/* Teams */}
+      {showMatchStats && (
+        <div className="grid grid-cols-[1fr_repeat(4,2rem)] gap-x-1 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-gray-700">
+          <span>Equipo</span>
+          <span className="text-center">Pts</span>
+          <span className="text-center">DG</span>
+          <span className="text-center">GF</span>
+          <span className="text-center">GC</span>
+        </div>
+      )}
       <div className="divide-y divide-gray-100 dark:divide-gray-700">
         {displayTeams.map((teamId, pos) => {
           const team = teamMap[teamId];
           if (!team) return null;
+          const stats = teamStats[teamId];
           return (
             <div key={teamId} className="px-4 py-2.5">
               {/* Team row */}
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-xs text-gray-400 dark:text-gray-500 w-4">
-                  {pos + 1}.
-                </span>
-                <FlagIcon countryCode={team.countryCode} />
-                <span className="text-sm font-medium text-gray-900 dark:text-gray-100 flex-1">
-                  {team.name}
-                </span>
-                {pos < 2 && (
-                  <span className="text-xs bg-indigo-50 dark:bg-blue-900/40 text-indigo-600 dark:text-blue-300 px-1.5 py-0.5 rounded">
-                    ✓ Pasa
+              <div
+                className={
+                  showMatchStats
+                    ? "grid grid-cols-[1fr_repeat(4,2rem)] gap-x-1 items-center mb-1.5"
+                    : "flex items-center gap-2 mb-1.5"
+                }
+              >
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="text-xs text-gray-400 dark:text-gray-500 w-4">
+                    {pos + 1}.
                   </span>
+                  <FlagIcon countryCode={team.countryCode} />
+                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
+                    {team.name}
+                  </span>
+                  {pos < 2 && (
+                    <span className="text-xs bg-indigo-50 dark:bg-blue-900/40 text-indigo-600 dark:text-blue-300 px-1.5 py-0.5 rounded shrink-0">
+                      ✓ Pasa
+                    </span>
+                  )}
+                </div>
+                {stats && (
+                  <>
+                    <span className="text-xs font-bold text-center text-gray-900 dark:text-gray-100">
+                      {stats.points}
+                    </span>
+                    <span
+                      className={`text-xs font-medium text-center ${
+                        stats.goalDifference > 0
+                          ? "text-green-600 dark:text-green-400"
+                          : stats.goalDifference < 0
+                            ? "text-red-600 dark:text-red-400"
+                            : "text-gray-500 dark:text-gray-400"
+                      }`}
+                    >
+                      {stats.goalDifference > 0 ? "+" : ""}
+                      {stats.goalDifference}
+                    </span>
+                    <span className="text-xs text-center text-gray-600 dark:text-gray-400">
+                      {stats.goalsFor}
+                    </span>
+                    <span className="text-xs text-center text-gray-600 dark:text-gray-400">
+                      {stats.goalsAgainst}
+                    </span>
+                  </>
                 )}
               </div>
 

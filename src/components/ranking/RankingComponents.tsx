@@ -50,6 +50,14 @@ export function Podium({ entries }: PodiumProps) {
               }}
             />
           </div>
+          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mt-1">
+            <div
+              className="h-1.5 rounded-full bg-amber-500"
+              style={{
+                width: `${(entry.temporalScore.total / MAX_SCORE.total) * 100}%`,
+              }}
+            />
+          </div>
         </Link>
       ))}
     </div>
@@ -74,7 +82,7 @@ export function RankingTable({ entries }: RankingTableProps) {
               <th className="px-4 py-3 text-right font-bold">Consolidado</th>
               <th className="px-4 py-3 text-right font-bold">Temporal</th>
               <th className="px-4 py-3 text-right hidden md:table-cell">
-                % completado
+                Progreso
               </th>
             </tr>
           </thead>
@@ -128,18 +136,36 @@ export function RankingTable({ entries }: RankingTableProps) {
                   )}
                 </td>
                 <td className="px-4 py-3 text-right hidden md:table-cell">
-                  <div className="flex items-center justify-end gap-2">
-                    <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div
-                        className="h-2 rounded-full bg-blue-500"
-                        style={{
-                          width: `${(entry.score.total / MAX_SCORE.total) * 100}%`,
-                        }}
-                      />
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="flex items-center justify-end gap-2">
+                      <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div
+                          className="h-2 rounded-full bg-blue-500"
+                          style={{
+                            width: `${(entry.score.total / MAX_SCORE.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 w-8 text-right">
+                        {Math.round((entry.score.total / MAX_SCORE.total) * 100)}%
+                      </span>
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 w-8 text-right">
-                      {Math.round((entry.score.total / MAX_SCORE.total) * 100)}%
-                    </span>
+                    <div className="flex items-center justify-end gap-2">
+                      <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                        <div
+                          className="h-1.5 rounded-full bg-amber-500"
+                          style={{
+                            width: `${(entry.temporalScore.total / MAX_SCORE.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs text-amber-600 dark:text-amber-400 w-8 text-right">
+                        {Math.round(
+                          (entry.temporalScore.total / MAX_SCORE.total) * 100,
+                        )}
+                        %
+                      </span>
+                    </div>
                   </div>
                 </td>
               </tr>

@@ -37,15 +37,33 @@ export function hasCompletedFirstRound(
   return teamIds.every((id) => (playedCounts.get(id) ?? 0) >= 1);
 }
 
-export function computeStandingsFromMatches(
+export interface TeamGroupStats {
+  teamId: string;
+  points: number;
+  goalDifference: number;
+  goalsFor: number;
+  goalsAgainst: number;
+}
+
+function sortGroupStats(stats: TeamGroupStats[]): TeamGroupStats[] {
+  return [...stats].sort(
+    (a, b) =>
+      b.points - a.points ||
+      b.goalDifference - a.goalDifference ||
+      b.goalsFor - a.goalsFor ||
+      a.teamId.localeCompare(b.teamId),
+  );
+}
+
+export function computeGroupStatsFromMatches(
   groupId: string,
   teamIds: string[],
   matches: FixtureMatch[],
-): string[] {
+): TeamGroupStats[] {
   const stats = new Map(
     teamIds.map((id) => [
       id,
-      { teamId: id, points: 0, goalDifference: 0, goalsFor: 0 },
+      { teamId: id, points: 0, goalDifference: 0, goalsFor: 0, goalsAgainst: 0 },
     ]),
   );
 
@@ -61,6 +79,8 @@ export function computeStandingsFromMatches(
 
     home.goalsFor += homeScore;
     away.goalsFor += awayScore;
+    home.goalsAgainst += awayScore;
+    away.goalsAgainst += homeScore;
     home.goalDifference += homeScore - awayScore;
     away.goalDifference += awayScore - homeScore;
 
@@ -74,15 +94,26 @@ export function computeStandingsFromMatches(
     }
   }
 
-  return [...stats.values()]
-    .sort(
-      (a, b) =>
-        b.points - a.points ||
-        b.goalDifference - a.goalDifference ||
-        b.goalsFor - a.goalsFor ||
-        a.teamId.localeCompare(b.teamId),
-    )
-    .map((row) => row.teamId);
+  return sortGroupStats([...stats.values()]);
+}
+
+export function computeStandingsFromMatches(
+  groupId: string,
+  teamIds: string[],
+  matches: FixtureMatch[],
+): string[] {
+  return computeGroupStatsFromMatches(groupId, teamIds, matches).map(
+    (row) => row.teamId,
+  );
+}
+
+export function hasFinishedGroupMatches(
+  groupId: string,
+  matches: FixtureMatch[],
+): boolean {
+  return matches.some(
+    (match) => match.group === groupId && isFinishedGroupMatch(match),
+  );
 }
 
 export function resolveGroupStandings(
