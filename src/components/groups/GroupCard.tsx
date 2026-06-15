@@ -46,7 +46,6 @@ export function GroupCard({
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-      {/* Header */}
       <div className="bg-indigo-700 dark:bg-gray-700 px-4 py-2.5 flex items-center justify-between">
         <h3 className="font-bold text-white text-sm">{group.name}</h3>
         <span
@@ -66,111 +65,109 @@ export function GroupCard({
         </span>
       </div>
 
-      {/* Teams */}
-      {showMatchStats && (
-        <div className="grid grid-cols-[1fr_repeat(4,2rem)] gap-x-1 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-gray-700">
-          <span>Equipo</span>
-          <span className="text-center">Pts</span>
-          <span className="text-center">DG</span>
-          <span className="text-center">GF</span>
-          <span className="text-center">GC</span>
-        </div>
-      )}
       <div className="divide-y divide-gray-100 dark:divide-gray-700">
         {displayTeams.map((teamId, pos) => {
           const team = teamMap[teamId];
           if (!team) return null;
           const stats = teamStats[teamId];
           return (
-            <div key={teamId} className="px-4 py-2.5">
-              {/* Team row */}
-              <div
-                className={
-                  showMatchStats
-                    ? "grid grid-cols-[1fr_repeat(4,2rem)] gap-x-1 items-center mb-1.5"
-                    : "flex items-center gap-2 mb-1.5"
-                }
-              >
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-xs text-gray-400 dark:text-gray-500 w-4">
-                    {pos + 1}.
-                  </span>
-                  <FlagIcon countryCode={team.countryCode} />
-                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
-                    {team.name}
-                  </span>
-                  {pos < 2 && (
-                    <span className="text-xs bg-indigo-50 dark:bg-blue-900/40 text-indigo-600 dark:text-blue-300 px-1.5 py-0.5 rounded shrink-0">
-                      ✓ Pasa
+            <div key={teamId} className="px-4 py-3">
+              <div className="flex items-start gap-2.5">
+                <span className="text-xs font-bold text-gray-400 dark:text-gray-500 w-4 pt-0.5 shrink-0">
+                  {pos + 1}.
+                </span>
+                <FlagIcon countryCode={team.countryCode} size="lg" />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100 leading-snug">
+                      {team.name}
                     </span>
+                    {pos < 2 && (
+                      <span className="text-[10px] bg-indigo-50 dark:bg-blue-900/40 text-indigo-600 dark:text-blue-300 px-1.5 py-0.5 rounded shrink-0 whitespace-nowrap">
+                        ✓ Pasa
+                      </span>
+                    )}
+                  </div>
+
+                  {stats && (
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1.5 text-xs text-gray-500 dark:text-gray-400">
+                      <span>
+                        <span className="font-bold text-gray-900 dark:text-gray-100">
+                          {stats.points}
+                        </span>{" "}
+                        pts
+                      </span>
+                      <span>
+                        DG{" "}
+                        <span
+                          className={`font-semibold ${
+                            stats.goalDifference > 0
+                              ? "text-green-600 dark:text-green-400"
+                              : stats.goalDifference < 0
+                                ? "text-red-600 dark:text-red-400"
+                                : "text-gray-700 dark:text-gray-300"
+                          }`}
+                        >
+                          {stats.goalDifference > 0 ? "+" : ""}
+                          {stats.goalDifference}
+                        </span>
+                      </span>
+                      <span>
+                        GF{" "}
+                        <span className="font-semibold text-gray-700 dark:text-gray-300">
+                          {stats.goalsFor}
+                        </span>
+                      </span>
+                      <span>
+                        GC{" "}
+                        <span className="font-semibold text-gray-700 dark:text-gray-300">
+                          {stats.goalsAgainst}
+                        </span>
+                      </span>
+                    </div>
                   )}
+
+                  <div className="flex gap-1.5 flex-wrap mt-2">
+                    {participants.map((p) => {
+                      const pred = p.groupPredictions[group.id] ?? [];
+                      const predictedPos = pred.indexOf(teamId);
+                      const isCorrect =
+                        (stored.completed || hasTemporalStandings) &&
+                        predictedPos === pos;
+                      const isPasses =
+                        (stored.completed || hasTemporalStandings) &&
+                        pos < 2 &&
+                        predictedPos >= 0 &&
+                        predictedPos < 2 &&
+                        predictedPos !== pos;
+                      const isPending =
+                        !stored.completed && !hasTemporalStandings;
+
+                      return (
+                        <Link
+                          key={p.id}
+                          to={`/participante/${p.id}`}
+                          title={`${p.name}: predijo ${predictedPos + 1}º`}
+                          className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-medium transition-opacity hover:opacity-80 ${
+                            isPending
+                              ? "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
+                              : isCorrect
+                                ? "bg-indigo-50 dark:bg-blue-900/60 text-indigo-700 dark:text-blue-200"
+                                : isPasses
+                                  ? "bg-yellow-100 dark:bg-yellow-900/60 text-yellow-800 dark:text-yellow-200"
+                                  : "bg-red-100 dark:bg-red-900/60 text-red-800 dark:text-red-200"
+                          }`}
+                        >
+                          <span
+                            className="w-2 h-2 rounded-full shrink-0"
+                            style={{ backgroundColor: p.color }}
+                          />
+                          {predictedPos >= 0 ? `${predictedPos + 1}º` : "—"}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
-                {stats && (
-                  <>
-                    <span className="text-xs font-bold text-center text-gray-900 dark:text-gray-100">
-                      {stats.points}
-                    </span>
-                    <span
-                      className={`text-xs font-medium text-center ${
-                        stats.goalDifference > 0
-                          ? "text-green-600 dark:text-green-400"
-                          : stats.goalDifference < 0
-                            ? "text-red-600 dark:text-red-400"
-                            : "text-gray-500 dark:text-gray-400"
-                      }`}
-                    >
-                      {stats.goalDifference > 0 ? "+" : ""}
-                      {stats.goalDifference}
-                    </span>
-                    <span className="text-xs text-center text-gray-600 dark:text-gray-400">
-                      {stats.goalsFor}
-                    </span>
-                    <span className="text-xs text-center text-gray-600 dark:text-gray-400">
-                      {stats.goalsAgainst}
-                    </span>
-                  </>
-                )}
-              </div>
-
-              {/* Participant prediction badges */}
-              <div className="flex gap-1.5 flex-wrap pl-6">
-                {participants.map((p) => {
-                  const pred = p.groupPredictions[group.id] ?? [];
-                  const predictedPos = pred.indexOf(teamId);
-                  const isCorrect =
-                    (stored.completed || hasTemporalStandings) &&
-                    predictedPos === pos;
-                  const isPasses =
-                    (stored.completed || hasTemporalStandings) &&
-                    pos < 2 &&
-                    predictedPos >= 0 &&
-                    predictedPos < 2 &&
-                    predictedPos !== pos;
-                  const isPending = !stored.completed && !hasTemporalStandings;
-
-                  return (
-                    <Link
-                      key={p.id}
-                      to={`/participante/${p.id}`}
-                      title={`${p.name}: predijo ${predictedPos + 1}º`}
-                      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-medium transition-opacity hover:opacity-80 ${
-                        isPending
-                          ? "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
-                          : isCorrect
-                            ? "bg-indigo-50 dark:bg-blue-900/60 text-indigo-700 dark:text-blue-200"
-                            : isPasses
-                              ? "bg-yellow-100 dark:bg-yellow-900/60 text-yellow-800 dark:text-yellow-200"
-                              : "bg-red-100 dark:bg-red-900/60 text-red-800 dark:text-red-200"
-                      }`}
-                    >
-                      <span
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: p.color }}
-                      />
-                      {predictedPos >= 0 ? `${predictedPos + 1}º` : "—"}
-                    </Link>
-                  );
-                })}
               </div>
             </div>
           );
