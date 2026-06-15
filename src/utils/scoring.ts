@@ -12,7 +12,7 @@ export const ROUND_POINTS: Record<RoundKey, number> = {
 export const MAX_SCORE = {
   groupPositions: 192,
   groupPerfectBonus: 120,
-  bestThirds: 48,
+  bestThirds: 64,
   passes: 64,
   r32: 80,
   r16: 80,
@@ -20,9 +20,9 @@ export const MAX_SCORE = {
   sf: 100,
   third: 50,
   final: 150,
-  groupTotal: 424,
+  groupTotal: 440,
   knockoutTotal: 560,
-  total: 984,
+  total: 1000,
 };
 
 /** 4 pts per correct position, +10 bonus if all 4 correct */
@@ -41,10 +41,10 @@ export function scoreGroupPositions(predicted: string[], actual: string[]): numb
   return pts;
 }
 
-/** 6 pts per correctly predicted best third */
+/** 8 pts per correctly predicted best third */
 export function scoreBestThirds(predicted: string[], actualBestThirds: string[]): number {
   if (actualBestThirds.length === 0) return 0;
-  return predicted.filter((t) => actualBestThirds.includes(t)).length * 6;
+  return predicted.filter((t) => actualBestThirds.includes(t)).length * 8;
 }
 
 /**
