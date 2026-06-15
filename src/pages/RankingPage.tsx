@@ -41,6 +41,11 @@ export function RankingPage() {
                   ? "Fase eliminatoria"
                   : "Torneo finalizado"}
             </span>
+            {" · "}
+            <span className="text-indigo-600 dark:text-blue-400">Consolidado</span>
+            {" = grupos cerrados · "}
+            <span className="text-amber-600 dark:text-amber-400">Temporal</span>
+            {" = clasificación actual"}
           </p>
         </div>
         <div className="text-right text-sm text-gray-400 dark:text-gray-500">

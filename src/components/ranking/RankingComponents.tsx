@@ -36,6 +36,9 @@ export function Podium({ entries }: PodiumProps) {
           <span className="text-2xl font-bold text-indigo-600 dark:text-blue-400">
             {entry.score.total}
           </span>
+          <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">
+            {entry.temporalScore.total} temp.
+          </span>
           <span className="text-xs text-gray-500 dark:text-gray-400">
             de {MAX_SCORE.total} pts
           </span>
@@ -68,7 +71,8 @@ export function RankingTable({ entries }: RankingTableProps) {
               <th className="px-4 py-3">Participante</th>
               <th className="px-4 py-3 text-right">Grupos</th>
               <th className="px-4 py-3 text-right">Eliminatoria</th>
-              <th className="px-4 py-3 text-right font-bold">Total</th>
+              <th className="px-4 py-3 text-right font-bold">Consolidado</th>
+              <th className="px-4 py-3 text-right font-bold">Temporal</th>
               <th className="px-4 py-3 text-right hidden md:table-cell">
                 % completado
               </th>
@@ -114,6 +118,14 @@ export function RankingTable({ entries }: RankingTableProps) {
                 </td>
                 <td className="px-4 py-3 text-right font-bold text-indigo-600 dark:text-blue-400 text-base">
                   {entry.score.total}
+                </td>
+                <td className="px-4 py-3 text-right font-bold text-amber-600 dark:text-amber-400 text-base">
+                  {entry.temporalScore.total}
+                  {entry.temporalRank !== entry.rank && (
+                    <span className="block text-xs font-normal text-gray-400 dark:text-gray-500">
+                      #{entry.temporalRank}
+                    </span>
+                  )}
                 </td>
                 <td className="px-4 py-3 text-right hidden md:table-cell">
                   <div className="flex items-center justify-end gap-2">

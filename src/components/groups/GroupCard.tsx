@@ -22,7 +22,8 @@ export function GroupCard({
   const teamMap = Object.fromEntries(teams.map((t) => [t.id, t]));
 
   const displayTeams =
-    gr.completed && gr.standings.length > 0 ? gr.standings : group.teamIds;
+    gr.standings.length >= 4 ? gr.standings : group.teamIds;
+  const hasCurrentStandings = gr.standings.length >= 4;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
@@ -33,10 +34,16 @@ export function GroupCard({
           className={`text-xs px-2 py-0.5 rounded-full font-medium ${
             gr.completed
               ? "bg-indigo-500 text-white"
-              : "bg-white/20 text-white/80"
+              : hasCurrentStandings
+                ? "bg-amber-500/80 text-white"
+                : "bg-white/20 text-white/80"
           }`}
         >
-          {gr.completed ? "Completado" : "Por jugar"}
+          {gr.completed
+            ? "Completado"
+            : hasCurrentStandings
+              ? "En juego"
+              : "Por jugar"}
         </span>
       </div>
 
@@ -68,14 +75,15 @@ export function GroupCard({
                 {participants.map((p) => {
                   const pred = p.groupPredictions[group.id] ?? [];
                   const predictedPos = pred.indexOf(teamId);
-                  const isCorrect = gr.completed && predictedPos === pos;
+                  const isCorrect =
+                    (gr.completed || hasCurrentStandings) && predictedPos === pos;
                   const isPasses =
-                    gr.completed &&
+                    (gr.completed || hasCurrentStandings) &&
                     pos < 2 &&
                     predictedPos >= 0 &&
                     predictedPos < 2 &&
                     predictedPos !== pos;
-                  const isPending = !gr.completed;
+                  const isPending = !gr.completed && !hasCurrentStandings;
 
                   return (
                     <Link

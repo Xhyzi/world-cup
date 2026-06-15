@@ -87,8 +87,12 @@ export interface ScoreBreakdown {
   knockoutTotal: number;
 }
 
+export type ScoreMode = 'consolidated' | 'temporal';
+
 export interface LeaderboardEntry {
   participant: Participant;
   score: ScoreBreakdown;
+  temporalScore: ScoreBreakdown;
   rank: number;
+  temporalRank: number;
 }

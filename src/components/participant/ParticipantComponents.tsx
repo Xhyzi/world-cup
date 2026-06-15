@@ -10,6 +10,8 @@ interface GroupPredictionCardProps {
   teams: Team[];
   points: number;
   perfectBonus: boolean;
+  temporalPoints?: number;
+  temporalPerfectBonus?: boolean;
 }
 
 function getTeamName(id: string, teams: Team[]): string {
@@ -23,10 +25,12 @@ function getPositionStatus(
   position: number,
   actual: string[],
   completed: boolean,
+  useCurrentStandings = false,
 ): PositionStatus {
-  if (!completed || actual.length < 4) return "pending";
+  const hasStandings = actual.length >= 4;
+  if (!hasStandings) return "pending";
+  if (!completed && !useCurrentStandings) return "pending";
   if (predictedTeam === actual[position]) return "correct";
-  // Passes = in top 2 of actual (qualifiers by position)
   if (actual.slice(0, 2).includes(predictedTeam)) return "passes";
   return "wrong";
 }
@@ -58,7 +62,12 @@ export function GroupPredictionCard({
   teams,
   points,
   perfectBonus,
+  temporalPoints = 0,
+  temporalPerfectBonus = false,
 }: GroupPredictionCardProps) {
+  const hasCurrentStandings = actual.length >= 4;
+  const showTemporal = !completed && hasCurrentStandings;
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
       <div className="flex items-center justify-between mb-3">
@@ -66,9 +75,9 @@ export function GroupPredictionCard({
           {groupName}
         </h3>
         <div className="flex items-center gap-2">
-          {perfectBonus && (
+          {(perfectBonus || temporalPerfectBonus) && (
             <span className="text-xs bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full font-medium">
-              ⭐ Perfecto
+              ⭐ Perfecto{temporalPerfectBonus && !completed ? " (temp.)" : ""}
             </span>
           )}
           {completed && (
@@ -76,7 +85,12 @@ export function GroupPredictionCard({
               +{points} pts
             </span>
           )}
-          {!completed && (
+          {showTemporal && (
+            <span className="text-sm font-bold text-amber-600 dark:text-amber-400">
+              +{temporalPoints} temp.
+            </span>
+          )}
+          {!completed && !hasCurrentStandings && (
             <span className="text-xs text-gray-400 dark:text-gray-500">
               En juego
             </span>
@@ -92,6 +106,7 @@ export function GroupPredictionCard({
             pos,
             actual,
             completed,
+            showTemporal,
           );
           const team = teams.find((t) => t.id === predictedTeam);
           return (
@@ -112,10 +127,10 @@ export function GroupPredictionCard({
         })}
       </div>
 
-      {completed && actual.length >= 4 && (
+      {(completed || showTemporal) && actual.length >= 4 && (
         <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
           <p className="text-xs text-gray-400 dark:text-gray-500 mb-1.5">
-            Resultado real:
+            {completed ? "Resultado real:" : "Clasificación actual:"}
           </p>
           <div className="flex flex-wrap gap-1">
             {actual.map((teamId, i) => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
-import { computeScore, MAX_SCORE } from "../utils/scoring";
+import { computeScore, scoreGroupForMode, MAX_SCORE } from "../utils/scoring";
 import {
   GroupPredictionCard,
   BestThirdsPanel,
@@ -48,12 +48,18 @@ export function ParticipantPage() {
     );
   }
 
-  const score = computeScore(participant, results);
+  const score = computeScore(participant, results, "consolidated");
+  const temporalScore = computeScore(participant, results, "temporal");
   const rank =
     participants
-      .map((p) => computeScore(p, results).total)
+      .map((p) => computeScore(p, results, "consolidated").total)
       .sort((a, b) => b - a)
       .indexOf(score.total) + 1;
+  const temporalRank =
+    participants
+      .map((p) => computeScore(p, results, "temporal").total)
+      .sort((a, b) => b - a)
+      .indexOf(temporalScore.total) + 1;
 
   const statsChips = [
     {
@@ -122,13 +128,29 @@ export function ParticipantPage() {
                 #{rank} de {participants.length}
               </span>
             </div>
-            <div className="flex items-center gap-2 mt-2">
-              <span className="text-3xl font-bold text-indigo-600 dark:text-blue-400">
-                {score.total}
-              </span>
-              <span className="text-gray-400 dark:text-gray-500 text-lg">
-                / {MAX_SCORE.total} pts
-              </span>
+            <div className="flex items-center gap-2 mt-2 flex-wrap">
+              <div>
+                <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
+                  Consolidado
+                </span>
+                <span className="text-3xl font-bold text-indigo-600 dark:text-blue-400">
+                  {score.total}
+                </span>
+                <span className="text-gray-400 dark:text-gray-500 text-lg ml-1">
+                  / {MAX_SCORE.total}
+                </span>
+              </div>
+              <div className="border-l border-gray-200 dark:border-gray-600 pl-4">
+                <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
+                  Temporal
+                </span>
+                <span className="text-2xl font-bold text-amber-600 dark:text-amber-400">
+                  {temporalScore.total}
+                </span>
+                <span className="text-gray-400 dark:text-gray-500 text-sm ml-1">
+                  (#{temporalRank})
+                </span>
+              </div>
             </div>
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mt-3">
               <div
@@ -136,6 +158,16 @@ export function ParticipantPage() {
                 style={{ width: `${(score.total / MAX_SCORE.total) * 100}%` }}
               />
             </div>
+            {temporalScore.total !== score.total && (
+              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mt-1">
+                <div
+                  className="h-1.5 rounded-full bg-amber-500 transition-all"
+                  style={{
+                    width: `${(temporalScore.total / MAX_SCORE.total) * 100}%`,
+                  }}
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -186,20 +218,18 @@ export function ParticipantPage() {
               completed: false,
             };
             const predicted = participant.groupPredictions[group.id] ?? [];
-            // Calculate points for this group
-            let pts = 0;
-            let perfectBonus = false;
-            if (gr.completed && gr.standings.length >= 4) {
-              let allCorrect = true;
-              for (let i = 0; i < 4; i++) {
-                if (predicted[i] === gr.standings[i]) pts += 4;
-                else allCorrect = false;
-              }
-              if (allCorrect) {
-                pts += 10;
-                perfectBonus = true;
-              }
-            }
+            const consolidated = scoreGroupForMode(
+              predicted,
+              gr.standings,
+              gr.completed,
+              "consolidated",
+            );
+            const temporal = scoreGroupForMode(
+              predicted,
+              gr.standings,
+              gr.completed,
+              "temporal",
+            );
             return (
               <GroupPredictionCard
                 key={group.id}
@@ -209,8 +239,10 @@ export function ParticipantPage() {
                 actual={gr.standings}
                 completed={gr.completed}
                 teams={teams}
-                points={pts}
-                perfectBonus={perfectBonus}
+                points={consolidated.points}
+                perfectBonus={consolidated.perfectBonus}
+                temporalPoints={temporal.points}
+                temporalPerfectBonus={temporal.perfectBonus}
               />
             );
           })}

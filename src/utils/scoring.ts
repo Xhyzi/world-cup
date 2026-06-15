@@ -1,4 +1,4 @@
-import type { Participant, Results, ScoreBreakdown, LeaderboardEntry, RoundKey } from '../types';
+import type { Participant, Results, ScoreBreakdown, LeaderboardEntry, RoundKey, ScoreMode } from '../types';
 
 export const ROUND_POINTS: Record<RoundKey, number> = {
   r32: 5,
@@ -24,6 +24,14 @@ export const MAX_SCORE = {
   knockoutTotal: 560,
   total: 1000,
 };
+
+function groupCountsForMode(
+  gr: { standings: string[]; completed: boolean },
+  mode: ScoreMode,
+): boolean {
+  if (gr.standings.length < 4) return false;
+  return mode === 'temporal' || gr.completed;
+}
 
 /** 4 pts per correct position, +10 bonus if all 4 correct */
 export function scoreGroupPositions(predicted: string[], actual: string[]): number {
@@ -51,21 +59,24 @@ export function scoreBestThirds(predicted: string[], actualBestThirds: string[])
  * 2 pts per team correctly predicted to advance to R32.
  * Qualifiers = top 2 from each group + 8 best thirds.
  */
-export function scorePasses(participant: Participant, results: Results): number {
+export function scorePasses(
+  participant: Participant,
+  results: Results,
+  mode: ScoreMode = 'consolidated',
+): number {
   const qualifiers = new Set<string>();
   for (const groupId of Object.keys(results.groupResults)) {
     const gr = results.groupResults[groupId];
-    if (gr.standings.length >= 2) {
-      qualifiers.add(gr.standings[0]);
-      qualifiers.add(gr.standings[1]);
-    }
+    if (gr.standings.length < 2) continue;
+    if (mode === 'consolidated' && !gr.completed) continue;
+    qualifiers.add(gr.standings[0]);
+    qualifiers.add(gr.standings[1]);
   }
   results.bestThirds.forEach((t) => qualifiers.add(t));
 
   if (qualifiers.size === 0) return 0;
 
   let pts = 0;
-  // Predicted qualifiers = top 2 of each predicted group + predicted best thirds
   const predictedQualifiers = new Set<string>();
   for (const groupId of Object.keys(participant.groupPredictions)) {
     const pred = participant.groupPredictions[groupId];
@@ -99,13 +110,17 @@ export function scoreKnockout(
   return breakdown;
 }
 
-export function computeScore(participant: Participant, results: Results): ScoreBreakdown {
+export function computeScore(
+  participant: Participant,
+  results: Results,
+  mode: ScoreMode = 'consolidated',
+): ScoreBreakdown {
   let groupPositions = 0;
   let groupPerfectBonus = 0;
 
   for (const groupId of Object.keys(results.groupResults)) {
     const gr = results.groupResults[groupId];
-    if (gr.standings.length < 4) continue;
+    if (!groupCountsForMode(gr, mode)) continue;
     const pred = participant.groupPredictions[groupId] ?? [];
     let positionPts = 0;
     let allCorrect = true;
@@ -121,7 +136,7 @@ export function computeScore(participant: Participant, results: Results): ScoreB
   }
 
   const bestThirds = scoreBestThirds(participant.bestThirdPredictions, results.bestThirds);
-  const passes = scorePasses(participant, results);
+  const passes = scorePasses(participant, results, mode);
   const kp = scoreKnockout(participant, results);
 
   const groupTotal = groupPositions + groupPerfectBonus + bestThirds + passes;
@@ -144,19 +159,50 @@ export function computeLeaderboard(
   participants: Participant[],
   results: Results
 ): LeaderboardEntry[] {
-  const entries = participants.map((p) => ({
+  const entries: LeaderboardEntry[] = participants.map((p) => ({
     participant: p,
-    score: computeScore(p, results),
+    score: computeScore(p, results, 'consolidated'),
+    temporalScore: computeScore(p, results, 'temporal'),
     rank: 0,
+    temporalRank: 0,
   }));
 
-  entries.sort((a, b) => b.score.total - a.score.total);
-
+  const byConsolidated = [...entries].sort((a, b) => b.score.total - a.score.total);
   let rank = 1;
-  entries.forEach((entry, i) => {
-    if (i > 0 && entry.score.total < entries[i - 1].score.total) rank = i + 1;
+  byConsolidated.forEach((entry, i) => {
+    if (i > 0 && entry.score.total < byConsolidated[i - 1].score.total) rank = i + 1;
     entry.rank = rank;
   });
 
-  return entries;
+  const byTemporal = [...entries].sort((a, b) => b.temporalScore.total - a.temporalScore.total);
+  rank = 1;
+  byTemporal.forEach((entry, i) => {
+    if (i > 0 && entry.temporalScore.total < byTemporal[i - 1].temporalScore.total) rank = i + 1;
+    entry.temporalRank = rank;
+  });
+
+  return byConsolidated;
+}
+
+export function scoreGroupForMode(
+  predicted: string[],
+  standings: string[],
+  completed: boolean,
+  mode: ScoreMode,
+): { points: number; perfectBonus: boolean } {
+  if (!groupCountsForMode({ standings, completed }, mode)) {
+    return { points: 0, perfectBonus: false };
+  }
+
+  let points = 0;
+  let allCorrect = true;
+  for (let i = 0; i < 4; i++) {
+    if (predicted[i] === standings[i]) points += 4;
+    else allCorrect = false;
+  }
+  if (allCorrect) {
+    points += 10;
+    return { points, perfectBonus: true };
+  }
+  return { points, perfectBonus: false };
 }
