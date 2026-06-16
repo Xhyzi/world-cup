@@ -179,13 +179,13 @@
     {
       "id": 537391,
       "utcDate": "2026-06-16T19:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "I",
       "homeTeam": "FRA",
       "awayTeam": "SEN",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 3,
+      "awayScore": 1
     },
     {
       "id": 537392,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-16T06:30:36.290Z"
+  "lastUpdated": "2026-06-16T21:39:25.637Z"
 }
