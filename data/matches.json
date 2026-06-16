@@ -168,13 +168,13 @@
     {
       "id": 537364,
       "utcDate": "2026-06-16T01:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "G",
       "homeTeam": "IRN",
       "awayTeam": "NZL",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 2,
+      "awayScore": 2
     },
     {
       "id": 537391,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-16T00:27:07.690Z"
+  "lastUpdated": "2026-06-16T06:30:36.290Z"
 }
