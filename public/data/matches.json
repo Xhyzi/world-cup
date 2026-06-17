@@ -212,13 +212,13 @@
     {
       "id": 537398,
       "utcDate": "2026-06-17T04:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "J",
       "homeTeam": "AUT",
       "awayTeam": "JOR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 3,
+      "awayScore": 1
     },
     {
       "id": 537403,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-17T03:36:03.938Z"
+  "lastUpdated": "2026-06-17T08:58:30.298Z"
 }
