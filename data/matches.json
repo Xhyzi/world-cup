@@ -278,13 +278,13 @@
     {
       "id": 537335,
       "utcDate": "2026-06-18T19:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "B",
       "homeTeam": "SUI",
       "awayTeam": "BIH",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 4,
+      "awayScore": 1
     },
     {
       "id": 537336,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-18T19:23:59.848Z"
+  "lastUpdated": "2026-06-18T22:02:35.154Z"
 }
