@@ -256,13 +256,13 @@
     {
       "id": 537404,
       "utcDate": "2026-06-18T02:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "K",
       "homeTeam": "UZB",
       "awayTeam": "COL",
       "homeScore": 1,
-      "awayScore": 1
+      "awayScore": 3
     },
     {
       "id": 537329,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-18T03:28:18.776Z"
+  "lastUpdated": "2026-06-18T08:41:04.764Z"
 }
