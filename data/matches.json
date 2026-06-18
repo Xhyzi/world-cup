@@ -245,7 +245,7 @@
     {
       "id": 537410,
       "utcDate": "2026-06-17T23:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "L",
       "homeTeam": "GHA",
@@ -267,13 +267,13 @@
     {
       "id": 537329,
       "utcDate": "2026-06-18T16:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "A",
       "homeTeam": "CZE",
       "awayTeam": "ZAF",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 1,
+      "awayScore": 0
     },
     {
       "id": 537335,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-18T12:20:57.026Z"
+  "lastUpdated": "2026-06-18T16:25:34.219Z"
 }
