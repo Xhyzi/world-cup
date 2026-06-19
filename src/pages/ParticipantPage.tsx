@@ -63,16 +63,24 @@ export function ParticipantPage() {
     "temporal",
     temporalSnapshot,
   );
+  const combinedScore = computeScore(
+    participant,
+    results,
+    "combined",
+    temporalSnapshot,
+  );
   const rank =
+    participants
+      .map((p) =>
+        computeScore(p, results, "combined", temporalSnapshot).total,
+      )
+      .sort((a, b) => b - a)
+      .indexOf(combinedScore.total) + 1;
+  const consolidatedRank =
     participants
       .map((p) => computeScore(p, results, "consolidated").total)
       .sort((a, b) => b - a)
       .indexOf(score.total) + 1;
-  const temporalRank =
-    participants
-      .map((p) => computeScore(p, results, "temporal", temporalSnapshot).total)
-      .sort((a, b) => b - a)
-      .indexOf(temporalScore.total) + 1;
 
   const statsChips = [
     {
@@ -144,14 +152,27 @@ export function ParticipantPage() {
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               <div>
                 <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
-                  Consolidado
+                  Total (cons. + temp.)
                 </span>
                 <span className="text-3xl font-bold text-indigo-600 dark:text-blue-400">
-                  {score.total}
+                  {combinedScore.total}
                 </span>
                 <span className="text-gray-400 dark:text-gray-500 text-lg ml-1">
                   / {MAX_SCORE.total}
                 </span>
+              </div>
+              <div className="border-l border-gray-200 dark:border-gray-600 pl-4">
+                <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
+                  Consolidado
+                </span>
+                <span className="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                  {score.total}
+                </span>
+                {consolidatedRank !== rank && (
+                  <span className="text-gray-400 dark:text-gray-500 text-sm ml-1">
+                    (#{consolidatedRank} solo cons.)
+                  </span>
+                )}
               </div>
               <div className="border-l border-gray-200 dark:border-gray-600 pl-4">
                 <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
@@ -160,18 +181,17 @@ export function ParticipantPage() {
                 <span className="text-2xl font-bold text-amber-600 dark:text-amber-400">
                   {temporalScore.total}
                 </span>
-                <span className="text-gray-400 dark:text-gray-500 text-sm ml-1">
-                  (#{temporalRank})
-                </span>
               </div>
             </div>
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mt-3">
               <div
                 className="h-2.5 rounded-full bg-indigo-500 transition-all"
-                style={{ width: `${(score.total / MAX_SCORE.total) * 100}%` }}
+                style={{
+                  width: `${(combinedScore.total / MAX_SCORE.total) * 100}%`,
+                }}
               />
             </div>
-            {temporalScore.total !== score.total && (
+            {combinedScore.total !== score.total && (
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mt-1">
                 <div
                   className="h-1.5 rounded-full bg-amber-500 transition-all"

@@ -34,10 +34,10 @@ export function Podium({ entries }: PodiumProps) {
             {entry.participant.name}
           </span>
           <span className="text-2xl font-bold text-indigo-600 dark:text-blue-400">
-            {entry.score.total}
+            {entry.combinedScore.total}
           </span>
-          <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">
-            {entry.temporalScore.total} temp.
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {entry.score.total} cons. · {entry.temporalScore.total} temp.
           </span>
           <span className="text-xs text-gray-500 dark:text-gray-400">
             de {MAX_SCORE.total} pts
@@ -46,7 +46,7 @@ export function Podium({ entries }: PodiumProps) {
             <div
               className="h-2 rounded-full bg-blue-500"
               style={{
-                width: `${(entry.score.total / MAX_SCORE.total) * 100}%`,
+                width: `${(entry.combinedScore.total / MAX_SCORE.total) * 100}%`,
               }}
             />
           </div>
@@ -126,14 +126,14 @@ export function RankingTable({ entries }: RankingTableProps) {
                 </td>
                 <td className="px-4 py-3 text-right font-bold text-indigo-600 dark:text-blue-400 text-base">
                   {entry.score.total}
+                  {entry.consolidatedRank !== entry.rank && (
+                    <span className="block text-xs font-normal text-gray-400 dark:text-gray-500">
+                      #{entry.consolidatedRank} solo cons.
+                    </span>
+                  )}
                 </td>
                 <td className="px-4 py-3 text-right font-bold text-amber-600 dark:text-amber-400 text-base">
                   {entry.temporalScore.total}
-                  {entry.temporalRank !== entry.rank && (
-                    <span className="block text-xs font-normal text-gray-400 dark:text-gray-500">
-                      #{entry.temporalRank}
-                    </span>
-                  )}
                 </td>
                 <td className="px-4 py-3 text-right hidden md:table-cell">
                   <div className="flex flex-col items-end gap-1">
@@ -142,12 +142,12 @@ export function RankingTable({ entries }: RankingTableProps) {
                         <div
                           className="h-2 rounded-full bg-blue-500"
                           style={{
-                            width: `${(entry.score.total / MAX_SCORE.total) * 100}%`,
+                            width: `${(entry.combinedScore.total / MAX_SCORE.total) * 100}%`,
                           }}
                         />
                       </div>
                       <span className="text-xs text-gray-500 dark:text-gray-400 w-8 text-right">
-                        {Math.round((entry.score.total / MAX_SCORE.total) * 100)}%
+                        {Math.round((entry.combinedScore.total / MAX_SCORE.total) * 100)}%
                       </span>
                     </div>
                     <div className="flex items-center justify-end gap-2">

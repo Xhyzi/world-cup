@@ -44,7 +44,33 @@ function groupCountsForMode(
 ): boolean {
   if (state.standings.length < 4) return false;
   if (mode === 'consolidated') return state.completed;
-  return state.firstRoundComplete;
+  if (mode === 'temporal') return state.firstRoundComplete;
+  return state.completed || state.firstRoundComplete;
+}
+
+function resolveGroupState(
+  groupId: string,
+  results: Results,
+  mode: ScoreMode,
+  temporalSnapshot?: Record<string, EffectiveGroupResult>,
+): EffectiveGroupResult {
+  const stored = results.groupResults[groupId] ?? {
+    standings: [],
+    completed: false,
+  };
+  const temporal = temporalSnapshot?.[groupId];
+
+  if (mode === 'combined') {
+    if (stored.completed && stored.standings.length >= 4) {
+      return { ...stored, firstRoundComplete: true };
+    }
+    if (temporal?.firstRoundComplete) return temporal;
+    return { standings: [], completed: false, firstRoundComplete: false };
+  }
+
+  if (mode === 'temporal' && temporal) return temporal;
+
+  return { ...stored, firstRoundComplete: false };
 }
 
 function scoreGroupFromStandings(
@@ -95,17 +121,12 @@ export function scorePasses(
   const qualifiers = new Set<string>();
 
   for (const groupId of Object.keys(results.groupResults)) {
-    const state =
-      mode === 'temporal' && temporalSnapshot
-        ? temporalSnapshot[groupId]
-        : {
-            ...(results.groupResults[groupId] ?? { standings: [], completed: false }),
-            firstRoundComplete: false,
-          };
+    const state = resolveGroupState(groupId, results, mode, temporalSnapshot);
 
     if (!state || state.standings.length < 2) continue;
     if (mode === 'consolidated' && !state.completed) continue;
     if (mode === 'temporal' && !state.firstRoundComplete) continue;
+    if (mode === 'combined' && !state.completed && !state.firstRoundComplete) continue;
 
     qualifiers.add(state.standings[0]);
     qualifiers.add(state.standings[1]);
@@ -161,13 +182,7 @@ export function computeScore(
   const groupIds = Object.keys(results.groupResults);
 
   for (const groupId of groupIds) {
-    const state: EffectiveGroupResult =
-      mode === 'temporal' && temporalSnapshot?.[groupId]
-        ? temporalSnapshot[groupId]
-        : {
-            ...(results.groupResults[groupId] ?? { standings: [], completed: false }),
-            firstRoundComplete: false,
-          };
+    const state = resolveGroupState(groupId, results, mode, temporalSnapshot);
 
     if (!groupCountsForMode(state, mode)) continue;
 
@@ -209,25 +224,30 @@ export function computeLeaderboard(
     participant: p,
     score: computeScore(p, results, 'consolidated'),
     temporalScore: computeScore(p, results, 'temporal', temporalSnapshot),
+    combinedScore: computeScore(p, results, 'combined', temporalSnapshot),
     rank: 0,
-    temporalRank: 0,
+    consolidatedRank: 0,
   }));
 
-  const byConsolidated = [...entries].sort((a, b) => b.score.total - a.score.total);
+  const byCombined = [...entries].sort(
+    (a, b) => b.combinedScore.total - a.combinedScore.total,
+  );
   let rank = 1;
-  byConsolidated.forEach((entry, i) => {
-    if (i > 0 && entry.score.total < byConsolidated[i - 1].score.total) rank = i + 1;
+  byCombined.forEach((entry, i) => {
+    if (i > 0 && entry.combinedScore.total < byCombined[i - 1].combinedScore.total) {
+      rank = i + 1;
+    }
     entry.rank = rank;
   });
 
-  const byTemporal = [...entries].sort((a, b) => b.temporalScore.total - a.temporalScore.total);
+  const byConsolidated = [...entries].sort((a, b) => b.score.total - a.score.total);
   rank = 1;
-  byTemporal.forEach((entry, i) => {
-    if (i > 0 && entry.temporalScore.total < byTemporal[i - 1].temporalScore.total) rank = i + 1;
-    entry.temporalRank = rank;
+  byConsolidated.forEach((entry, i) => {
+    if (i > 0 && entry.score.total < byConsolidated[i - 1].score.total) rank = i + 1;
+    entry.consolidatedRank = rank;
   });
 
-  return byConsolidated;
+  return byCombined;
 }
 
 export function scoreGroupForMode(
