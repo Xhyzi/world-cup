@@ -316,7 +316,7 @@
       "group": "D",
       "homeTeam": "USA",
       "awayTeam": "AUS",
-      "homeScore": 1,
+      "homeScore": 2,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-19T19:33:54.981Z"
+  "lastUpdated": "2026-06-19T20:32:19.057Z"
 }
