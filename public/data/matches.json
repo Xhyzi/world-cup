@@ -30,8 +30,8 @@
       "group": "B",
       "homeTeam": "CAN",
       "awayTeam": "BIH",
-      "homeScore": 1,
-      "awayScore": 1
+      "homeScore": null,
+      "awayScore": null
     },
     {
       "id": 537345,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-19T03:23:55.658Z"
+  "lastUpdated": "2026-06-19T07:53:01.264Z"
 }
