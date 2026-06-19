@@ -289,12 +289,12 @@
     {
       "id": 537336,
       "utcDate": "2026-06-18T22:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "B",
       "homeTeam": "CAN",
       "awayTeam": "QAT",
-      "homeScore": 4,
+      "homeScore": 6,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-18T23:34:21.286Z"
+  "lastUpdated": "2026-06-19T00:52:49.377Z"
 }
