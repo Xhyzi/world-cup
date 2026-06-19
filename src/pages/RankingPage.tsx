@@ -15,7 +15,7 @@ export function RankingPage() {
 
   if (error) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6 text-red-700 dark:text-red-400">
           Error cargando datos: {error}
         </div>
@@ -26,10 +26,10 @@ export function RankingPage() {
   const leaderboard = computeLeaderboard(participants, results, groups, matches);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div className="min-w-0">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
             Clasificación
           </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -41,15 +41,19 @@ export function RankingPage() {
                   ? "Fase eliminatoria"
                   : "Torneo finalizado"}
             </span>
-            {" · "}
+          </p>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
             <span className="text-indigo-600 dark:text-blue-400">Consolidado</span>
             {" = grupos cerrados · "}
             <span className="text-amber-600 dark:text-amber-400">Temporal</span>
-            {" = clasificación actual tras 1ª jornada completa · "}
-            Ranking ordenado por consolidado + temporal
+            {" = tras 1ª jornada completa"}
+            <span className="hidden sm:inline">
+              {" · "}
+              Ranking ordenado por consolidado + temporal
+            </span>
           </p>
         </div>
-        <div className="text-right text-sm text-gray-400 dark:text-gray-500">
+        <div className="text-sm text-gray-400 dark:text-gray-500 shrink-0">
           Máx. posible:{" "}
           <span className="font-semibold text-gray-700 dark:text-gray-300">
             {MAX_SCORE.total} pts

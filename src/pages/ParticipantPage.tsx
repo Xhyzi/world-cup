@@ -27,7 +27,7 @@ export function ParticipantPage() {
 
   if (error) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6 text-red-700 dark:text-red-400">
           Error cargando datos: {error}
         </div>
@@ -38,7 +38,7 @@ export function ParticipantPage() {
   const participant = participants.find((p) => p.id === id);
   if (!participant) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 rounded-xl p-6">
           Participante no encontrado.{" "}
           <Link to="/" className="underline text-indigo-600 dark:text-blue-400">
@@ -122,7 +122,7 @@ export function ParticipantPage() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
       {/* Back link */}
       <Link
         to="/"
@@ -132,7 +132,7 @@ export function ParticipantPage() {
       </Link>
 
       {/* Header card */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 mb-6">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-4 sm:p-6 mb-6">
         <div className="flex items-start gap-5 flex-wrap">
           <ParticipantAvatar
             participantId={participant.id}
@@ -142,43 +142,43 @@ export function ParticipantPage() {
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                 {participant.name}
               </h1>
               <span className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-3 py-0.5 rounded-full text-sm font-medium">
                 #{rank} de {participants.length}
               </span>
             </div>
-            <div className="flex items-center gap-2 mt-2 flex-wrap">
+            <div className="grid grid-cols-3 gap-3 sm:flex sm:items-center sm:gap-2 mt-2">
               <div>
                 <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
-                  Total (cons. + temp.)
+                  Total
                 </span>
-                <span className="text-3xl font-bold text-indigo-600 dark:text-blue-400">
+                <span className="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-blue-400">
                   {combinedScore.total}
                 </span>
-                <span className="text-gray-400 dark:text-gray-500 text-lg ml-1">
+                <span className="text-gray-400 dark:text-gray-500 text-sm sm:text-lg ml-1">
                   / {MAX_SCORE.total}
                 </span>
               </div>
-              <div className="border-l border-gray-200 dark:border-gray-600 pl-4">
+              <div className="sm:border-l sm:border-gray-200 dark:sm:border-gray-600 sm:pl-4">
                 <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
                   Consolidado
                 </span>
-                <span className="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                <span className="text-xl sm:text-2xl font-bold text-gray-700 dark:text-gray-300">
                   {score.total}
                 </span>
                 {consolidatedRank !== rank && (
-                  <span className="text-gray-400 dark:text-gray-500 text-sm ml-1">
-                    (#{consolidatedRank} solo cons.)
+                  <span className="text-gray-400 dark:text-gray-500 text-xs sm:text-sm ml-1">
+                    (#{consolidatedRank})
                   </span>
                 )}
               </div>
-              <div className="border-l border-gray-200 dark:border-gray-600 pl-4">
+              <div className="sm:border-l sm:border-gray-200 dark:sm:border-gray-600 sm:pl-4">
                 <span className="text-xs text-gray-500 dark:text-gray-400 block mb-0.5">
                   Temporal
                 </span>
-                <span className="text-2xl font-bold text-amber-600 dark:text-amber-400">
+                <span className="text-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400">
                   {temporalScore.total}
                 </span>
               </div>
@@ -226,18 +226,21 @@ export function ParticipantPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 dark:bg-gray-800 rounded-xl p-1 mb-6">
+      <div className="flex gap-1 bg-gray-100 dark:bg-gray-800 rounded-xl p-1 mb-6 overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
+            className={`flex-1 min-w-0 py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
               activeTab === tab.key
                 ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm"
                 : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
             }`}
           >
-            {tab.label}
+            <span className="sm:hidden">
+              {tab.key === "terceros" ? "Terceros" : tab.label}
+            </span>
+            <span className="hidden sm:inline">{tab.label}</span>
           </button>
         ))}
       </div>

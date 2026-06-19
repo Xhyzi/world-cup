@@ -27,7 +27,7 @@ export function KnockoutPage() {
 
   if (error) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6 text-red-700 dark:text-red-400">
           Error cargando datos: {error}
         </div>
@@ -37,7 +37,7 @@ export function KnockoutPage() {
 
   if (results.phase === "groups") {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Fase Eliminatoria
         </h1>
@@ -56,7 +56,7 @@ export function KnockoutPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
       <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Fase Eliminatoria
@@ -92,14 +92,14 @@ export function KnockoutPage() {
 
           return (
             <section key={round}>
-              <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-4">
+                <h2 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
                   {ROUND_LABELS[round]}
                 </h2>
-                <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full">
+                <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full w-fit">
                   {ROUND_POINTS[round]} pts por acierto
                 </span>
-                <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+                <span className="text-xs text-gray-400 dark:text-gray-500 sm:ml-auto">
                   {completedCount}/{matches.length} jugados
                 </span>
               </div>

@@ -14,7 +14,7 @@ export function GroupsPage() {
 
   if (error) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6 text-red-700 dark:text-red-400">
           Error cargando datos: {error}
         </div>
@@ -27,7 +27,7 @@ export function GroupsPage() {
   ).length;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
       <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -39,7 +39,7 @@ export function GroupsPage() {
         </div>
 
         {/* Legend */}
-        <div className="flex items-center gap-3 text-xs text-gray-600 dark:text-gray-400">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 text-xs text-gray-600 dark:text-gray-400">
           <span className="flex items-center gap-1">
             <span className="w-3 h-3 rounded bg-indigo-100 dark:bg-blue-800 inline-block" />
             Posición exacta

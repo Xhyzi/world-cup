@@ -105,7 +105,7 @@ export function MatchesPage() {
 
   if (error) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6 text-red-700 dark:text-red-400">
           Error cargando datos: {error}
         </div>
@@ -114,7 +114,7 @@ export function MatchesPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
       <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">

@@ -71,16 +71,28 @@ interface RankingTableProps {
 export function RankingTable({ entries }: RankingTableProps) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm">
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+      <div className="overflow-x-auto -mx-px">
+        <table className="w-full text-xs sm:text-sm min-w-[32rem]">
           <thead>
             <tr className="bg-indigo-700 dark:bg-gray-700 text-white text-left">
-              <th className="px-4 py-3 w-10">#</th>
-              <th className="px-4 py-3">Participante</th>
-              <th className="px-4 py-3 text-right">Grupos</th>
-              <th className="px-4 py-3 text-right">Eliminatoria</th>
-              <th className="px-4 py-3 text-right font-bold">Consolidado</th>
-              <th className="px-4 py-3 text-right font-bold">Temporal</th>
+              <th className="px-2 sm:px-4 py-2.5 sm:py-3 w-8 sm:w-10">#</th>
+              <th className="px-2 sm:px-4 py-2.5 sm:py-3">Participante</th>
+              <th className="px-2 sm:px-4 py-2.5 sm:py-3 text-right">
+                <span className="sm:hidden">Gr.</span>
+                <span className="hidden sm:inline">Grupos</span>
+              </th>
+              <th className="px-2 sm:px-4 py-2.5 sm:py-3 text-right">
+                <span className="sm:hidden">Elim.</span>
+                <span className="hidden sm:inline">Eliminatoria</span>
+              </th>
+              <th className="px-2 sm:px-4 py-2.5 sm:py-3 text-right font-bold">
+                <span className="sm:hidden">Cons.</span>
+                <span className="hidden sm:inline">Consolidado</span>
+              </th>
+              <th className="px-2 sm:px-4 py-2.5 sm:py-3 text-right font-bold">
+                <span className="sm:hidden">Temp.</span>
+                <span className="hidden sm:inline">Temporal</span>
+              </th>
               <th className="px-4 py-3 text-right hidden md:table-cell">
                 Progreso
               </th>
@@ -94,45 +106,45 @@ export function RankingTable({ entries }: RankingTableProps) {
                   i % 2 === 0 ? "" : "bg-gray-50/50 dark:bg-gray-800/50"
                 }`}
               >
-                <td className="px-4 py-3 text-center">
+                <td className="px-2 sm:px-4 py-2.5 sm:py-3 text-center">
                   {MEDALS[i] ?? <span className="text-gray-400">🏅</span>}
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-2 sm:px-4 py-2.5 sm:py-3">
                   <Link
                     to={`/participante/${entry.participant.id}`}
-                    className="flex items-center gap-3 hover:underline"
+                    className="flex items-center gap-2 sm:gap-3 hover:underline min-w-0"
                   >
                     <ParticipantAvatar
                       participantId={entry.participant.id}
                       color={entry.participant.color}
                       size="sm"
                     />
-                    <span className="font-medium text-gray-900 dark:text-gray-100">
+                    <span className="font-medium text-gray-900 dark:text-gray-100 truncate">
                       {entry.participant.name}
                     </span>
                   </Link>
                 </td>
-                <td className="px-4 py-3 text-right text-gray-600 dark:text-gray-400">
+                <td className="px-2 sm:px-4 py-2.5 sm:py-3 text-right text-gray-600 dark:text-gray-400 whitespace-nowrap">
                   {entry.score.groupTotal}
-                  <span className="text-xs text-gray-400 dark:text-gray-500 ml-1">
+                  <span className="text-xs text-gray-400 dark:text-gray-500 ml-0.5 sm:ml-1">
                     /{MAX_SCORE.groupTotal}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-right text-gray-600 dark:text-gray-400">
+                <td className="px-2 sm:px-4 py-2.5 sm:py-3 text-right text-gray-600 dark:text-gray-400 whitespace-nowrap">
                   {entry.score.knockoutTotal}
-                  <span className="text-xs text-gray-400 dark:text-gray-500 ml-1">
+                  <span className="text-xs text-gray-400 dark:text-gray-500 ml-0.5 sm:ml-1">
                     /{MAX_SCORE.knockoutTotal}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-right font-bold text-indigo-600 dark:text-blue-400 text-base">
+                <td className="px-2 sm:px-4 py-2.5 sm:py-3 text-right font-bold text-indigo-600 dark:text-blue-400 text-sm sm:text-base whitespace-nowrap">
                   {entry.score.total}
                   {entry.consolidatedRank !== entry.rank && (
-                    <span className="block text-xs font-normal text-gray-400 dark:text-gray-500">
-                      #{entry.consolidatedRank} solo cons.
+                    <span className="block text-[10px] sm:text-xs font-normal text-gray-400 dark:text-gray-500">
+                      #{entry.consolidatedRank} cons.
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-right font-bold text-amber-600 dark:text-amber-400 text-base">
+                <td className="px-2 sm:px-4 py-2.5 sm:py-3 text-right font-bold text-amber-600 dark:text-amber-400 text-sm sm:text-base whitespace-nowrap">
                   {entry.temporalScore.total}
                 </td>
                 <td className="px-4 py-3 text-right hidden md:table-cell">

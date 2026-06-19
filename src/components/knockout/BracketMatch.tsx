@@ -28,22 +28,24 @@ export function BracketMatch({
       {/* Match teams */}
       <div className="p-3 border-b border-gray-100 dark:border-gray-700">
         {homeTeam && awayTeam ? (
-          <div className="flex items-center gap-2 text-sm">
-            <FlagIcon countryCode={homeTeam.countryCode} />
-            <span
-              className={`flex-1 font-medium truncate ${match.winner === homeTeam.id ? "text-indigo-600 dark:text-blue-400 font-bold" : "text-gray-700 dark:text-gray-300"}`}
+          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-2 text-sm">
+            <div
+              className={`flex items-center gap-2 min-w-0 ${match.winner === homeTeam.id ? "text-indigo-600 dark:text-blue-400 font-bold" : "text-gray-700 dark:text-gray-300"}`}
             >
-              {homeTeam.name}
-            </span>
-            <span className="text-gray-400 dark:text-gray-500 text-xs font-bold">
+              <FlagIcon countryCode={homeTeam.countryCode} />
+              <span className="font-medium truncate">{homeTeam.name}</span>
+            </div>
+            <span className="text-gray-400 dark:text-gray-500 text-xs font-bold sm:px-1">
               vs
             </span>
-            <span
-              className={`flex-1 text-right font-medium truncate ${match.winner === awayTeam.id ? "text-indigo-600 dark:text-blue-400 font-bold" : "text-gray-700 dark:text-gray-300"}`}
+            <div
+              className={`flex items-center gap-2 min-w-0 sm:flex-1 sm:justify-end ${match.winner === awayTeam.id ? "text-indigo-600 dark:text-blue-400 font-bold" : "text-gray-700 dark:text-gray-300"}`}
             >
-              {awayTeam.name}
-            </span>
-            <FlagIcon countryCode={awayTeam.countryCode} />
+              <span className="font-medium truncate sm:text-right">
+                {awayTeam.name}
+              </span>
+              <FlagIcon countryCode={awayTeam.countryCode} />
+            </div>
           </div>
         ) : (
           <div className="text-sm text-gray-400 dark:text-gray-500 text-center py-0.5">

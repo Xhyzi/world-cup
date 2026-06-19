@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AppLogo } from "../AppLogo";
 import { useTheme } from "../../hooks/useTheme";
@@ -50,29 +51,35 @@ const navLinks = [
   { to: "/eliminatoria", label: "Eliminatoria" },
 ];
 
+const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  `block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+    isActive
+      ? "bg-white/20 text-white"
+      : "text-white/70 hover:text-white hover:bg-white/10"
+  }`;
+
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="bg-indigo-700 dark:bg-gray-900 shadow-lg sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <AppLogo className="w-9 h-9 flex-shrink-0" />
-          <span className="text-white font-bold text-lg leading-tight">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <AppLogo className="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0" />
+          <span className="text-white font-bold text-base sm:text-lg leading-tight truncate">
             E-lux Porra
           </span>
         </div>
 
-        <nav className="flex items-center gap-1">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
               end={to === "/"}
               className={({ isActive }) =>
-                `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive
-                    ? "bg-white/20 text-white"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
-                }`
+                navLinkClass({ isActive }).replace("block ", "")
               }
             >
               {label}
@@ -80,7 +87,65 @@ export function Header() {
           ))}
           <ThemeToggle />
         </nav>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={menuOpen}
+            className="p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            {menuOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <nav className="md:hidden border-t border-white/10 px-4 py-3 space-y-1">
+          {navLinks.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === "/"}
+              onClick={() => setMenuOpen(false)}
+              className={navLinkClass}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
