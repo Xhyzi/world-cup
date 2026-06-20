@@ -333,12 +333,12 @@
     {
       "id": 537341,
       "utcDate": "2026-06-20T00:30:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "stage": "GROUP_STAGE",
       "group": "C",
       "homeTeam": "BRA",
       "awayTeam": "HAI",
-      "homeScore": 0,
+      "homeScore": 3,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-20T00:43:25.612Z"
+  "lastUpdated": "2026-06-20T01:43:24.161Z"
 }
