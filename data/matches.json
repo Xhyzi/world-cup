@@ -322,7 +322,7 @@
     {
       "id": 537342,
       "utcDate": "2026-06-19T22:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "C",
       "homeTeam": "SCO",
@@ -333,13 +333,13 @@
     {
       "id": 537341,
       "utcDate": "2026-06-20T00:30:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "C",
       "homeTeam": "BRA",
       "awayTeam": "HAI",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537347,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-19T23:23:17.657Z"
+  "lastUpdated": "2026-06-20T00:43:25.612Z"
 }
