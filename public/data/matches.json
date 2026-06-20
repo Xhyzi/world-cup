@@ -360,8 +360,8 @@
       "group": "F",
       "homeTeam": "NED",
       "awayTeam": "SWE",
-      "homeScore": 2,
-      "awayScore": 0
+      "homeScore": 4,
+      "awayScore": 1
     },
     {
       "id": 537353,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-20T17:31:32.888Z"
+  "lastUpdated": "2026-06-20T18:30:55.345Z"
 }
