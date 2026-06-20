@@ -355,13 +355,13 @@
     {
       "id": 537359,
       "utcDate": "2026-06-20T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "F",
       "homeTeam": "NED",
       "awayTeam": "SWE",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 2,
+      "awayScore": 0
     },
     {
       "id": 537353,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-20T15:34:13.857Z"
+  "lastUpdated": "2026-06-20T17:31:32.888Z"
 }
