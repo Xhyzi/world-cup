@@ -377,7 +377,7 @@
     {
       "id": 537354,
       "utcDate": "2026-06-21T00:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "E",
       "homeTeam": "ECU",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-21T00:47:37.180Z"
+  "lastUpdated": "2026-06-21T03:10:05.855Z"
 }
