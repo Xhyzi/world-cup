@@ -426,8 +426,8 @@
       "group": "H",
       "homeTeam": "URU",
       "awayTeam": "CPV",
-      "homeScore": 0,
-      "awayScore": 0
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": 537366,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-21T22:27:04.517Z"
+  "lastUpdated": "2026-06-21T23:30:21.910Z"
 }
