@@ -410,13 +410,13 @@
     {
       "id": 537365,
       "utcDate": "2026-06-21T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "G",
       "homeTeam": "BEL",
       "awayTeam": "IRN",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": 537372,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-21T18:32:40.630Z"
+  "lastUpdated": "2026-06-21T19:32:18.679Z"
 }
