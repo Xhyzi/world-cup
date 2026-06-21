@@ -416,7 +416,7 @@
       "homeTeam": "BEL",
       "awayTeam": "IRN",
       "homeScore": 0,
-      "awayScore": 1
+      "awayScore": 0
     },
     {
       "id": 537372,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-21T19:32:18.679Z"
+  "lastUpdated": "2026-06-21T20:32:57.201Z"
 }
