@@ -30,8 +30,8 @@
       "group": "B",
       "homeTeam": "CAN",
       "awayTeam": "BIH",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 1,
+      "awayScore": 1
     },
     {
       "id": 537345,
@@ -443,7 +443,7 @@
     {
       "id": 537399,
       "utcDate": "2026-06-22T17:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "J",
       "homeTeam": "ARG",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-22T19:06:45.387Z"
+  "lastUpdated": "2026-06-22T21:01:44.512Z"
 }
