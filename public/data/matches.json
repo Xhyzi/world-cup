@@ -432,13 +432,13 @@
     {
       "id": 537366,
       "utcDate": "2026-06-22T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "G",
       "homeTeam": "NZL",
       "awayTeam": "EGY",
       "homeScore": 1,
-      "awayScore": 0
+      "awayScore": 3
     },
     {
       "id": 537399,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-22T01:51:59.559Z"
+  "lastUpdated": "2026-06-22T03:10:23.737Z"
 }
