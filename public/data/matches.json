@@ -454,13 +454,13 @@
     {
       "id": 537393,
       "utcDate": "2026-06-22T21:00:00Z",
-      "status": "TIMED",
+      "status": "PAUSED",
       "stage": "GROUP_STAGE",
       "group": "I",
       "homeTeam": "FRA",
       "awayTeam": "IRQ",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 1,
+      "awayScore": 0
     },
     {
       "id": 537394,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-22T21:01:44.512Z"
+  "lastUpdated": "2026-06-22T22:34:29.620Z"
 }
