@@ -421,13 +421,13 @@
     {
       "id": 537372,
       "utcDate": "2026-06-21T22:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "H",
       "homeTeam": "URU",
       "awayTeam": "CPV",
       "homeScore": 2,
-      "awayScore": 1
+      "awayScore": 2
     },
     {
       "id": 537366,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-21T23:30:21.910Z"
+  "lastUpdated": "2026-06-22T00:47:35.578Z"
 }
