@@ -1,5 +1,6 @@
 import { useData } from "../hooks/useData";
 import { BracketMatch } from "../components/knockout/BracketMatch";
+import { ParticipantName } from "../components/participant/ParticipantName";
 import type { RoundKey } from "../types";
 import { ROUND_POINTS } from "../utils/scoring";
 
@@ -74,7 +75,7 @@ export function KnockoutPage() {
                 style={{ backgroundColor: p.color }}
               />
               <span className="text-gray-700 dark:text-gray-300 font-medium">
-                {p.name}
+                <ParticipantName name={p.name} />
               </span>
             </div>
           ))}

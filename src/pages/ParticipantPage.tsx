@@ -8,6 +8,7 @@ import {
   BestThirdsPanel,
   KnockoutPredictions,
 } from "../components/participant/ParticipantComponents";
+import { ParticipantName } from "../components/participant/ParticipantName";
 import { ParticipantAvatar } from "../components/ParticipantAvatar";
 
 type Tab = "grupos" | "terceros" | "eliminatoria";
@@ -143,7 +144,7 @@ export function ParticipantPage() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 flex-wrap">
               <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-                {participant.name}
+                <ParticipantName name={participant.name} />
               </h1>
               <span className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-3 py-0.5 rounded-full text-sm font-medium">
                 #{rank} de {participants.length}

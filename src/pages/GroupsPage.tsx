@@ -1,5 +1,6 @@
 import { useData } from "../hooks/useData";
 import { GroupCard } from "../components/groups/GroupCard";
+import { ParticipantName } from "../components/participant/ParticipantName";
 
 export function GroupsPage() {
   const { groups, participants, results, matches, teams, loading, error } = useData();
@@ -67,7 +68,7 @@ export function GroupsPage() {
               style={{ backgroundColor: p.color }}
             />
             <span className="text-gray-700 dark:text-gray-300 font-medium">
-              {p.name}
+              <ParticipantName name={p.name} />
             </span>
           </div>
         ))}

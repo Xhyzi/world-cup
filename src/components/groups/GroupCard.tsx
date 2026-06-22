@@ -5,6 +5,7 @@ import {
   hasFinishedGroupMatches,
   resolveGroupStandings,
 } from "../../utils/standings";
+import { formatParticipantNameText } from "../participant/ParticipantName";
 import { FlagIcon } from "../FlagIcon";
 
 interface GroupCardProps {
@@ -147,7 +148,7 @@ export function GroupCard({
                         <Link
                           key={p.id}
                           to={`/participante/${p.id}`}
-                          title={`${p.name}: predijo ${predictedPos + 1}º`}
+                          title={`${formatParticipantNameText(p.name)}: predijo ${predictedPos + 1}º`}
                           className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-medium transition-opacity hover:opacity-80 ${
                             isPending
                               ? "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"

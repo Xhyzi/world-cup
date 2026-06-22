@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { KnockoutMatch, Participant, Team } from "../../types";
 import { ROUND_POINTS } from "../../utils/scoring";
 import { buildTeamMap } from "../../utils/teamIds";
+import { formatParticipantNameText } from "../participant/ParticipantName";
 import { FlagIcon } from "../FlagIcon";
 
 interface BracketMatchProps {
@@ -77,7 +78,7 @@ export function BracketMatch({
             <Link
               key={p.id}
               to={`/participante/${p.id}`}
-              title={`${p.name}: ${predictedTeam?.name ?? predicted}`}
+              title={`${formatParticipantNameText(p.name)}: ${predictedTeam?.name ?? predicted}`}
               className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium transition-opacity hover:opacity-80 ${
                 !match.completed
                   ? "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400"

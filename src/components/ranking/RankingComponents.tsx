@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { LeaderboardEntry } from "../../types";
 import { MAX_SCORE } from "../../utils/scoring";
 import { ParticipantAvatar } from "../ParticipantAvatar";
+import { ParticipantName } from "../participant/ParticipantName";
 
 const MEDALS = ["🥇", "🥈", "🥉"];
 const RANK_COLORS = [
@@ -31,7 +32,7 @@ export function Podium({ entries }: PodiumProps) {
             size="md"
           />
           <span className="font-semibold text-gray-900 dark:text-gray-100 text-center">
-            {entry.participant.name}
+            <ParticipantName name={entry.participant.name} />
           </span>
           <span className="text-2xl font-bold text-indigo-600 dark:text-blue-400">
             {entry.combinedScore.total}
@@ -120,7 +121,7 @@ export function RankingTable({ entries }: RankingTableProps) {
                       size="sm"
                     />
                     <span className="font-medium text-gray-900 dark:text-gray-100 truncate">
-                      {entry.participant.name}
+                      <ParticipantName name={entry.participant.name} />
                     </span>
                   </Link>
                 </td>
