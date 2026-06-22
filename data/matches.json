@@ -443,13 +443,13 @@
     {
       "id": 537399,
       "utcDate": "2026-06-22T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "J",
       "homeTeam": "ARG",
       "awayTeam": "AUT",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537393,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-22T03:10:23.737Z"
+  "lastUpdated": "2026-06-22T17:32:31.315Z"
 }
