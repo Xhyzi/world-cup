@@ -465,24 +465,24 @@
     {
       "id": 537394,
       "utcDate": "2026-06-23T00:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "I",
       "homeTeam": "NOR",
       "awayTeam": "SEN",
       "homeScore": 3,
-      "awayScore": 1
+      "awayScore": 2
     },
     {
       "id": 537400,
       "utcDate": "2026-06-23T03:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "J",
       "homeTeam": "JOR",
       "awayTeam": "ALG",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537405,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-23T01:40:37.974Z"
+  "lastUpdated": "2026-06-23T03:07:19.382Z"
 }
