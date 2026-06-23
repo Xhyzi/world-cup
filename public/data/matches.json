@@ -498,13 +498,13 @@
     {
       "id": 537411,
       "utcDate": "2026-06-23T20:00:00Z",
-      "status": "TIMED",
+      "status": "LIVE",
       "stage": "GROUP_STAGE",
       "group": "L",
       "homeTeam": "ENG",
       "awayTeam": "GHA",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537412,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-23T19:36:58.642Z"
+  "lastUpdated": "2026-06-23T20:44:14.485Z"
 }
