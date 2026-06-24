@@ -515,7 +515,7 @@
       "homeTeam": "PAN",
       "awayTeam": "CRO",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1
     },
     {
       "id": 537406,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-23T23:25:12.540Z"
+  "lastUpdated": "2026-06-24T00:37:48.423Z"
 }
