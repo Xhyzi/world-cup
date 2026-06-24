@@ -820,7 +820,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "GER",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -864,7 +864,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "MEX",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -897,7 +897,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "USA",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -952,7 +952,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "ARG",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-24T05:20:46.218Z"
+  "lastUpdated": "2026-06-24T09:07:04.170Z"
 }
