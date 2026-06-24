@@ -509,7 +509,7 @@
     {
       "id": 537412,
       "utcDate": "2026-06-23T23:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "L",
       "homeTeam": "PAN",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-24T00:37:48.423Z"
+  "lastUpdated": "2026-06-24T01:39:28.916Z"
 }
