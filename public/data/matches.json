@@ -30,8 +30,8 @@
       "group": "B",
       "homeTeam": "CAN",
       "awayTeam": "BIH",
-      "homeScore": 1,
-      "awayScore": 1
+      "homeScore": null,
+      "awayScore": null
     },
     {
       "id": 537345,
@@ -553,24 +553,24 @@
     {
       "id": 537344,
       "utcDate": "2026-06-24T22:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "C",
       "homeTeam": "MAR",
       "awayTeam": "HAI",
-      "homeScore": 2,
+      "homeScore": 4,
       "awayScore": 2
     },
     {
       "id": 537343,
       "utcDate": "2026-06-24T22:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "C",
       "homeTeam": "SCO",
       "awayTeam": "BRA",
       "homeScore": 0,
-      "awayScore": 2
+      "awayScore": 3
     },
     {
       "id": 537331,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-24T23:26:38.686Z"
+  "lastUpdated": "2026-06-25T00:42:59.408Z"
 }
