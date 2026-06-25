@@ -71,7 +71,7 @@
     {
       "id": "r32_m3",
       "round": "r32",
-      "homeTeam": null,
+      "homeTeam": "GER",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -103,7 +103,7 @@
     {
       "id": "r32_m7",
       "round": "r32",
-      "homeTeam": null,
+      "homeTeam": "MEX",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -127,7 +127,7 @@
     {
       "id": "r32_m10",
       "round": "r32",
-      "homeTeam": null,
+      "homeTeam": "USA",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -167,7 +167,7 @@
     {
       "id": "r32_m15",
       "round": "r32",
-      "homeTeam": null,
+      "homeTeam": "ARG",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-25T21:33:21.420Z"
+  "lastUpdated": "2026-06-25T22:31:30.006Z"
 }
