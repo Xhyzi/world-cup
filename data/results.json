@@ -55,16 +55,16 @@
     {
       "id": "r32_m1",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ZAF",
+      "awayTeam": "CAN",
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m2",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "BRA",
+      "awayTeam": "JPN",
       "winner": null,
       "completed": false
     },
@@ -79,8 +79,8 @@
     {
       "id": "r32_m4",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "NED",
+      "awayTeam": "MAR",
       "winner": null,
       "completed": false
     },
@@ -128,7 +128,7 @@
       "id": "r32_m10",
       "round": "r32",
       "homeTeam": "USA",
-      "awayTeam": null,
+      "awayTeam": "BIH",
       "winner": null,
       "completed": false
     },
@@ -151,7 +151,7 @@
     {
       "id": "r32_m13",
       "round": "r32",
-      "homeTeam": null,
+      "homeTeam": "SUI",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -159,7 +159,7 @@
     {
       "id": "r32_m14",
       "round": "r32",
-      "homeTeam": null,
+      "homeTeam": "AUS",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-26T18:37:11.102Z"
+  "lastUpdated": "2026-06-26T19:33:37.742Z"
 }
