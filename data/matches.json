@@ -798,8 +798,8 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ZAF",
+      "awayTeam": "CAN",
       "homeScore": null,
       "awayScore": null
     },
@@ -809,8 +809,8 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "BRA",
+      "awayTeam": "JPN",
       "homeScore": null,
       "awayScore": null
     },
@@ -820,7 +820,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "GER",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -831,8 +831,8 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "NED",
+      "awayTeam": "MAR",
       "homeScore": null,
       "awayScore": null
     },
@@ -864,7 +864,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "MEX",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -897,8 +897,8 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "USA",
+      "awayTeam": "BIH",
       "homeScore": null,
       "awayScore": null
     },
@@ -930,7 +930,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "SUI",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -941,7 +941,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "AUS",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -952,7 +952,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "ARG",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-26T14:54:39.011Z"
+  "lastUpdated": "2026-06-26T15:47:18.166Z"
 }
