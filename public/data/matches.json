@@ -641,18 +641,18 @@
     {
       "id": 537349,
       "utcDate": "2026-06-26T02:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "D",
       "homeTeam": "TUR",
       "awayTeam": "USA",
-      "homeScore": 2,
-      "awayScore": 1
+      "homeScore": 3,
+      "awayScore": 2
     },
     {
       "id": 537350,
       "utcDate": "2026-06-26T02:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "D",
       "homeTeam": "PAR",
@@ -820,7 +820,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": "GER",
+      "homeTeam": null,
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -864,7 +864,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": "MEX",
+      "homeTeam": null,
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -897,7 +897,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": "USA",
+      "homeTeam": null,
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -952,7 +952,7 @@
       "status": "TIMED",
       "stage": "LAST_32",
       "group": null,
-      "homeTeam": "ARG",
+      "homeTeam": null,
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-26T03:08:00.281Z"
+  "lastUpdated": "2026-06-26T05:26:47.646Z"
 }
