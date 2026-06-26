@@ -663,23 +663,23 @@
     {
       "id": 537395,
       "utcDate": "2026-06-26T19:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "I",
       "homeTeam": "NOR",
       "awayTeam": "FRA",
       "homeScore": 1,
-      "awayScore": 2
+      "awayScore": 3
     },
     {
       "id": 537396,
       "utcDate": "2026-06-26T19:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "I",
       "homeTeam": "SEN",
       "awayTeam": "IRQ",
-      "homeScore": 1,
+      "homeScore": 3,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-26T19:33:37.742Z"
+  "lastUpdated": "2026-06-26T20:34:55.774Z"
 }
