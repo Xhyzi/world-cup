@@ -619,7 +619,7 @@
     {
       "id": 537361,
       "utcDate": "2026-06-25T23:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "F",
       "homeTeam": "TUN",
@@ -630,7 +630,7 @@
     {
       "id": 537362,
       "utcDate": "2026-06-25T23:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "F",
       "homeTeam": "JPN",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-26T00:44:03.089Z"
+  "lastUpdated": "2026-06-26T01:44:23.529Z"
 }
