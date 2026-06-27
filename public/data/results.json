@@ -55,23 +55,23 @@
     {
       "id": "r32_m1",
       "round": "r32",
-      "homeTeam": "ZAF",
-      "awayTeam": "CAN",
+      "homeTeam": null,
+      "awayTeam": null,
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m2",
       "round": "r32",
-      "homeTeam": "BRA",
-      "awayTeam": "JPN",
+      "homeTeam": null,
+      "awayTeam": null,
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m3",
       "round": "r32",
-      "homeTeam": "GER",
+      "homeTeam": null,
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -79,15 +79,15 @@
     {
       "id": "r32_m4",
       "round": "r32",
-      "homeTeam": "NED",
-      "awayTeam": "MAR",
+      "homeTeam": null,
+      "awayTeam": null,
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m5",
       "round": "r32",
-      "homeTeam": "CIV",
+      "homeTeam": null,
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -103,7 +103,7 @@
     {
       "id": "r32_m7",
       "round": "r32",
-      "homeTeam": "MEX",
+      "homeTeam": null,
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -127,8 +127,8 @@
     {
       "id": "r32_m10",
       "round": "r32",
-      "homeTeam": "USA",
-      "awayTeam": "BIH",
+      "homeTeam": null,
+      "awayTeam": null,
       "winner": null,
       "completed": false
     },
@@ -151,7 +151,7 @@
     {
       "id": "r32_m13",
       "round": "r32",
-      "homeTeam": "SUI",
+      "homeTeam": null,
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -159,7 +159,7 @@
     {
       "id": "r32_m14",
       "round": "r32",
-      "homeTeam": "AUS",
+      "homeTeam": null,
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -167,7 +167,7 @@
     {
       "id": "r32_m15",
       "round": "r32",
-      "homeTeam": "ARG",
+      "homeTeam": null,
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-27T17:24:53.173Z"
+  "lastUpdated": "2026-06-27T19:30:48.181Z"
 }
