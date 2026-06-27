@@ -740,12 +740,12 @@
     {
       "id": 537414,
       "utcDate": "2026-06-27T21:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "L",
       "homeTeam": "CRO",
       "awayTeam": "GHA",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-27T21:24:04.500Z"
+  "lastUpdated": "2026-06-27T22:22:54.117Z"
 }
