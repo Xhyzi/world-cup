@@ -707,24 +707,24 @@
     {
       "id": 537367,
       "utcDate": "2026-06-27T03:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "G",
       "homeTeam": "NZL",
       "awayTeam": "BEL",
-      "homeScore": 0,
-      "awayScore": 0
+      "homeScore": 1,
+      "awayScore": 5
     },
     {
       "id": 537368,
       "utcDate": "2026-06-27T03:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "G",
       "homeTeam": "EGY",
       "awayTeam": "IRN",
-      "homeScore": 0,
-      "awayScore": 0
+      "homeScore": 1,
+      "awayScore": 1
     },
     {
       "id": 537413,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-27T03:06:48.268Z"
+  "lastUpdated": "2026-06-27T05:18:37.231Z"
 }
