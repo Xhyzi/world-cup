@@ -751,7 +751,7 @@
     {
       "id": 537407,
       "utcDate": "2026-06-27T23:30:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "K",
       "homeTeam": "COL",
@@ -762,12 +762,12 @@
     {
       "id": 537408,
       "utcDate": "2026-06-27T23:30:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "K",
       "homeTeam": "COD",
       "awayTeam": "UZB",
-      "homeScore": 0,
+      "homeScore": 3,
       "awayScore": 1
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-28T00:42:27.889Z"
+  "lastUpdated": "2026-06-28T01:43:28.899Z"
 }
