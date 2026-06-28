@@ -1,5 +1,5 @@
 {
-  "phase": "groups",
+  "phase": "knockout",
   "groupResults": {
     "A": {
       "standings": [],
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-28T03:08:15.641Z"
+  "lastUpdated": "2026-06-28T05:31:25.886Z"
 }
