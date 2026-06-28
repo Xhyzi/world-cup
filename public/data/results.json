@@ -72,7 +72,7 @@
       "id": "r32_m3",
       "round": "r32",
       "homeTeam": "GER",
-      "awayTeam": null,
+      "awayTeam": "PAR",
       "winner": null,
       "completed": false
     },
@@ -88,15 +88,15 @@
       "id": "r32_m5",
       "round": "r32",
       "homeTeam": "CIV",
-      "awayTeam": null,
+      "awayTeam": "NOR",
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m6",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "FRA",
+      "awayTeam": "SWE",
       "winner": null,
       "completed": false
     },
@@ -104,23 +104,23 @@
       "id": "r32_m7",
       "round": "r32",
       "homeTeam": "MEX",
-      "awayTeam": null,
+      "awayTeam": "ECU",
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m8",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ENG",
+      "awayTeam": "COD",
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m9",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "BEL",
+      "awayTeam": "SEN",
       "winner": null,
       "completed": false
     },
@@ -135,16 +135,16 @@
     {
       "id": "r32_m11",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ESP",
+      "awayTeam": "AUT",
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m12",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "POR",
+      "awayTeam": "CRO",
       "winner": null,
       "completed": false
     },
@@ -152,7 +152,7 @@
       "id": "r32_m13",
       "round": "r32",
       "homeTeam": "SUI",
-      "awayTeam": null,
+      "awayTeam": "ALG",
       "winner": null,
       "completed": false
     },
@@ -160,7 +160,7 @@
       "id": "r32_m14",
       "round": "r32",
       "homeTeam": "AUS",
-      "awayTeam": null,
+      "awayTeam": "EGY",
       "winner": null,
       "completed": false
     },
@@ -168,15 +168,15 @@
       "id": "r32_m15",
       "round": "r32",
       "homeTeam": "ARG",
-      "awayTeam": null,
+      "awayTeam": "CPV",
       "winner": null,
       "completed": false
     },
     {
       "id": "r32_m16",
       "round": "r32",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "COL",
+      "awayTeam": "GHA",
       "winner": null,
       "completed": false
     },
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-28T05:31:25.886Z"
+  "lastUpdated": "2026-06-28T07:22:09.597Z"
 }
