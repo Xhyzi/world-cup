@@ -822,8 +822,8 @@
       "group": null,
       "homeTeam": "GER",
       "awayTeam": "PAR",
-      "homeScore": 1,
-      "awayScore": 1
+      "homeScore": 2,
+      "awayScore": 2
     },
     {
       "id": 537418,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-29T22:24:30.896Z"
+  "lastUpdated": "2026-06-29T23:22:57.641Z"
 }
