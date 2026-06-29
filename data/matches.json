@@ -974,7 +974,7 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "CAN",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-28T21:24:22.411Z"
+  "lastUpdated": "2026-06-29T07:43:38.147Z"
 }
