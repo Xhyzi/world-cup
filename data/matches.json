@@ -817,13 +817,13 @@
     {
       "id": 537415,
       "utcDate": "2026-06-29T20:30:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "GER",
       "awayTeam": "PAR",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1
     },
     {
       "id": 537418,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-29T20:37:58.459Z"
+  "lastUpdated": "2026-06-29T21:31:35.471Z"
 }
