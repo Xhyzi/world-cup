@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import { computeScore, scoreGroupForMode, MAX_SCORE } from "../utils/scoring";
-import { resolveGroupStandings } from "../utils/standings";
+import { resolveGroupStandings, resolveEffectiveResults } from "../utils/standings";
 import {
   GroupPredictionCard,
   BestThirdsPanel,
@@ -50,36 +50,37 @@ export function ParticipantPage() {
     );
   }
 
+  const effectiveResults = resolveEffectiveResults(groups, results, matches);
   const temporalSnapshot = Object.fromEntries(
     groups.map((group) => [
       group.id,
-      resolveGroupStandings(group, results, matches),
+      resolveGroupStandings(group, effectiveResults, matches),
     ]),
   );
 
-  const score = computeScore(participant, results, "consolidated");
+  const score = computeScore(participant, effectiveResults, "consolidated");
   const temporalScore = computeScore(
     participant,
-    results,
+    effectiveResults,
     "temporal",
     temporalSnapshot,
   );
   const combinedScore = computeScore(
     participant,
-    results,
+    effectiveResults,
     "combined",
     temporalSnapshot,
   );
   const rank =
     participants
       .map((p) =>
-        computeScore(p, results, "combined", temporalSnapshot).total,
+        computeScore(p, effectiveResults, "combined", temporalSnapshot).total,
       )
       .sort((a, b) => b - a)
       .indexOf(combinedScore.total) + 1;
   const consolidatedRank =
     participants
-      .map((p) => computeScore(p, results, "consolidated").total)
+      .map((p) => computeScore(p, effectiveResults, "consolidated").total)
       .sort((a, b) => b - a)
       .indexOf(score.total) + 1;
 
@@ -250,7 +251,7 @@ export function ParticipantPage() {
       {activeTab === "grupos" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {groups.map((group) => {
-            const stored = results.groupResults[group.id] ?? {
+            const stored = effectiveResults.groupResults[group.id] ?? {
               standings: [],
               completed: false,
             };
@@ -290,7 +291,7 @@ export function ParticipantPage() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
           <BestThirdsPanel
             predicted={participant.bestThirdPredictions}
-            actual={results.bestThirds}
+            actual={effectiveResults.bestThirds}
             teams={teams}
             points={score.bestThirds}
           />

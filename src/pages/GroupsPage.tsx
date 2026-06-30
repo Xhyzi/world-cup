@@ -1,6 +1,7 @@
 import { useData } from "../hooks/useData";
 import { GroupCard } from "../components/groups/GroupCard";
 import { ParticipantName } from "../components/participant/ParticipantName";
+import { resolveGroupStandings } from "../utils/standings";
 
 export function GroupsPage() {
   const { groups, participants, results, matches, teams, loading, error } = useData();
@@ -24,7 +25,7 @@ export function GroupsPage() {
   }
 
   const completedGroups = groups.filter(
-    (g) => results.groupResults[g.id]?.completed,
+    (g) => resolveGroupStandings(g, results, matches).completed,
   ).length;
 
   return (

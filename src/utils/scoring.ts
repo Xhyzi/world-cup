@@ -10,6 +10,7 @@ import type {
 } from '../types';
 import {
   buildTemporalSnapshot,
+  resolveEffectiveResults,
   type EffectiveGroupResult,
 } from './standings';
 
@@ -218,13 +219,14 @@ export function computeLeaderboard(
   groups: Group[],
   matches: MatchesData,
 ): LeaderboardEntry[] {
-  const temporalSnapshot = buildTemporalSnapshot(groups, results, matches);
+  const effectiveResults = resolveEffectiveResults(groups, results, matches);
+  const temporalSnapshot = buildTemporalSnapshot(groups, effectiveResults, matches);
 
   const entries: LeaderboardEntry[] = participants.map((p) => ({
     participant: p,
-    score: computeScore(p, results, 'consolidated'),
-    temporalScore: computeScore(p, results, 'temporal', temporalSnapshot),
-    combinedScore: computeScore(p, results, 'combined', temporalSnapshot),
+    score: computeScore(p, effectiveResults, 'consolidated'),
+    temporalScore: computeScore(p, effectiveResults, 'temporal', temporalSnapshot),
+    combinedScore: computeScore(p, effectiveResults, 'combined', temporalSnapshot),
     rank: 0,
     consolidatedRank: 0,
   }));

@@ -7,12 +7,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import https from 'node:https';
 import { fileURLToPath } from 'node:url';
+import { syncGroupResultsFromMatches } from './standings-utils.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const API_KEY = process.env.FOOTBALL_API_KEY;
 const RESULTS_PATH = path.join(__dirname, '..', 'public', 'data', 'results.json');
 const MATCHES_PATH = path.join(__dirname, '..', 'public', 'data', 'matches.json');
+const GROUPS_PATH = path.join(__dirname, '..', 'public', 'data', 'groups.json');
 
 // WC 2026 competition ID in football-data.org (update if needed)
 const COMPETITION_ID = 'WC';
@@ -102,6 +104,31 @@ async function main() {
     console.warn('Could not fetch standings:', err.message);
   }
 
+  const matchesData = {
+    matches: matches.map((m) => ({
+      id: m.id,
+      utcDate: m.utcDate,
+      status: m.status,
+      stage: m.stage,
+      group: m.group?.replace('GROUP_', '') ?? null,
+      homeTeam: normalizeTeamId(m.homeTeam?.tla),
+      awayTeam: normalizeTeamId(m.awayTeam?.tla),
+      homeScore:
+        m.score?.fullTime?.home ??
+        m.score?.regularTime?.home ??
+        m.score?.halfTime?.home ??
+        null,
+      awayScore:
+        m.score?.fullTime?.away ??
+        m.score?.regularTime?.away ??
+        m.score?.halfTime?.away ??
+        null,
+    })),
+  };
+
+  const groups = JSON.parse(fs.readFileSync(GROUPS_PATH, 'utf8'));
+  syncGroupResultsFromMatches(current, groups, matchesData.matches);
+
   // Update knockout matches
   const stageMap = {
     'LAST_32': 'r32',
@@ -138,28 +165,6 @@ async function main() {
         : null;
     });
   }
-
-  const matchesData = {
-    matches: matches.map((m) => ({
-      id: m.id,
-      utcDate: m.utcDate,
-      status: m.status,
-      stage: m.stage,
-      group: m.group?.replace('GROUP_', '') ?? null,
-      homeTeam: normalizeTeamId(m.homeTeam?.tla),
-      awayTeam: normalizeTeamId(m.awayTeam?.tla),
-      homeScore:
-        m.score?.fullTime?.home ??
-        m.score?.regularTime?.home ??
-        m.score?.halfTime?.home ??
-        null,
-      awayScore:
-        m.score?.fullTime?.away ??
-        m.score?.regularTime?.away ??
-        m.score?.halfTime?.away ??
-        null,
-    })),
-  };
 
   const previousResults = JSON.parse(fs.readFileSync(RESULTS_PATH, 'utf8'));
   const previousMatches = JSON.parse(fs.readFileSync(MATCHES_PATH, 'utf8'));

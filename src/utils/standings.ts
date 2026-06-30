@@ -116,6 +116,65 @@ export function hasFinishedGroupMatches(
   );
 }
 
+/** Each team has played all three group matches. */
+export function isGroupCompleteFromMatches(
+  groupId: string,
+  teamIds: string[],
+  matches: FixtureMatch[],
+): boolean {
+  const playedCounts = getGroupMatchCounts(groupId, teamIds, matches);
+  return teamIds.every((id) => (playedCounts.get(id) ?? 0) >= 3);
+}
+
+interface ThirdPlaceCandidate {
+  teamId: string;
+  groupId: string;
+  points: number;
+  goalDifference: number;
+  goalsFor: number;
+}
+
+/** Top 8 third-placed teams by points, goal difference, goals scored. */
+export function computeBestThirds(
+  groups: Group[],
+  groupStandings: Record<string, string[]>,
+  matches: FixtureMatch[],
+): string[] {
+  const candidates: ThirdPlaceCandidate[] = [];
+
+  for (const group of groups) {
+    const standings = groupStandings[group.id];
+    if (!standings || standings.length < 3) continue;
+
+    const thirdId = standings[2];
+    const stats = computeGroupStatsFromMatches(
+      group.id,
+      group.teamIds,
+      matches,
+    ).find((row) => row.teamId === thirdId);
+    if (!stats) continue;
+
+    candidates.push({
+      teamId: thirdId,
+      groupId: group.id,
+      points: stats.points,
+      goalDifference: stats.goalDifference,
+      goalsFor: stats.goalsFor,
+    });
+  }
+
+  return candidates
+    .sort(
+      (a, b) =>
+        b.points - a.points ||
+        b.goalDifference - a.goalDifference ||
+        b.goalsFor - a.goalsFor ||
+        a.groupId.localeCompare(b.groupId),
+    )
+    .slice(0, 8)
+    .map((row) => row.teamId);
+}
+
 export function resolveGroupStandings(
   group: Group,
   results: Results,
@@ -131,10 +190,28 @@ export function resolveGroupStandings(
     matches.matches,
   );
   const firstRoundComplete = hasCompletedFirstRound(group.teamIds, playedCounts);
+  const completeFromMatches = isGroupCompleteFromMatches(
+    group.id,
+    group.teamIds,
+    matches.matches,
+  );
 
   if (stored.completed && stored.standings.length >= 4) {
     return {
       standings: stored.standings,
+      completed: true,
+      firstRoundComplete: true,
+    };
+  }
+
+  if (completeFromMatches) {
+    const standings = computeStandingsFromMatches(
+      group.id,
+      group.teamIds,
+      matches.matches,
+    );
+    return {
+      standings,
       completed: true,
       firstRoundComplete: true,
     };
@@ -157,6 +234,50 @@ export function resolveGroupStandings(
     standings,
     completed: false,
     firstRoundComplete: true,
+  };
+}
+
+/** Merges stored results with match-derived standings, completion, and best thirds. */
+export function resolveEffectiveResults(
+  groups: Group[],
+  results: Results,
+  matches: MatchesData,
+): Results {
+  const groupResults: Record<string, GroupResult> = {};
+  let allComplete = true;
+
+  for (const group of groups) {
+    const effective = resolveGroupStandings(group, results, matches);
+    groupResults[group.id] = {
+      standings: effective.standings,
+      completed: effective.completed,
+    };
+    if (!effective.completed) allComplete = false;
+  }
+
+  const standingsByGroup = Object.fromEntries(
+    groups.map((group) => [group.id, groupResults[group.id].standings]),
+  );
+
+  const bestThirds =
+    results.bestThirds.length > 0
+      ? results.bestThirds
+      : allComplete
+        ? computeBestThirds(groups, standingsByGroup, matches.matches)
+        : [];
+
+  const phase =
+    results.phase === 'finished'
+      ? 'finished'
+      : allComplete || results.phase === 'knockout'
+        ? 'knockout'
+        : 'groups';
+
+  return {
+    ...results,
+    phase,
+    groupResults,
+    bestThirds,
   };
 }
 

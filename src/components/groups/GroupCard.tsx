@@ -23,10 +23,6 @@ export function GroupCard({
   matches,
   teams,
 }: GroupCardProps) {
-  const stored = results.groupResults[group.id] ?? {
-    standings: [],
-    completed: false,
-  };
   const effective = resolveGroupStandings(group, results, matches);
   const teamMap = Object.fromEntries(teams.map((t) => [t.id, t]));
 
@@ -34,6 +30,7 @@ export function GroupCard({
     effective.standings.length >= 4 ? effective.standings : group.teamIds;
   const hasTemporalStandings =
     effective.firstRoundComplete && effective.standings.length >= 4;
+  const isCompleted = effective.completed;
   const showMatchStats = hasFinishedGroupMatches(group.id, matches.matches);
   const teamStats = showMatchStats
     ? Object.fromEntries(
@@ -51,14 +48,14 @@ export function GroupCard({
         <h3 className="font-bold text-white text-sm">{group.name}</h3>
         <span
           className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-            stored.completed
+            isCompleted
               ? "bg-indigo-500 text-white"
               : hasTemporalStandings
                 ? "bg-amber-500/80 text-white"
                 : "bg-white/20 text-white/80"
           }`}
         >
-          {stored.completed
+          {isCompleted
             ? "Completado"
             : hasTemporalStandings
               ? "En juego"
@@ -133,16 +130,16 @@ export function GroupCard({
                       const pred = p.groupPredictions[group.id] ?? [];
                       const predictedPos = pred.indexOf(teamId);
                       const isCorrect =
-                        (stored.completed || hasTemporalStandings) &&
+                        (isCompleted || hasTemporalStandings) &&
                         predictedPos === pos;
                       const isPasses =
-                        (stored.completed || hasTemporalStandings) &&
+                        (isCompleted || hasTemporalStandings) &&
                         pos < 2 &&
                         predictedPos >= 0 &&
                         predictedPos < 2 &&
                         predictedPos !== pos;
                       const isPending =
-                        !stored.completed && !hasTemporalStandings;
+                        !isCompleted && !hasTemporalStandings;
 
                       return (
                         <Link

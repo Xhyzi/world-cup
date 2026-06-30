@@ -36,6 +36,10 @@ jobs:
           FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
         run: node scripts/fetch-results.js
 
+      - name: Sync group standings from matches
+        if: steps.api.outputs.configured == 'true'
+        run: node scripts/sync-results-from-matches.js
+
       - name: Commit updated results
         if: steps.api.outputs.configured == 'true'
         id: commit

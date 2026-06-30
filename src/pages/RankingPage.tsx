@@ -1,5 +1,6 @@
 import { useData } from "../hooks/useData";
 import { computeLeaderboard, MAX_SCORE } from "../utils/scoring";
+import { resolveEffectiveResults } from "../utils/standings";
 import { Podium, RankingTable } from "../components/ranking/RankingComponents";
 
 export function RankingPage() {
@@ -24,6 +25,7 @@ export function RankingPage() {
   }
 
   const leaderboard = computeLeaderboard(participants, results, groups, matches);
+  const effectiveResults = resolveEffectiveResults(groups, results, matches);
 
   return (
     <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
@@ -35,9 +37,9 @@ export function RankingPage() {
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
             Fase actual:{" "}
             <span className="font-medium capitalize text-indigo-600 dark:text-blue-400">
-              {results.phase === "groups"
+              {effectiveResults.phase === "groups"
                 ? "Fase de grupos"
-                : results.phase === "knockout"
+                : effectiveResults.phase === "knockout"
                   ? "Fase eliminatoria"
                   : "Torneo finalizado"}
             </span>
