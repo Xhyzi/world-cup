@@ -207,8 +207,8 @@
       "round": "r32",
       "homeTeam": "CIV",
       "awayTeam": "NOR",
-      "winner": null,
-      "completed": false,
+      "winner": "NOR",
+      "completed": true,
       "apiMatchId": 537424
     },
     {
@@ -397,5 +397,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-30T18:37:59.079Z"
+  "lastUpdated": "2026-06-30T19:35:07.645Z"
 }
