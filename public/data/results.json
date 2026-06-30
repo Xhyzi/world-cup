@@ -184,14 +184,14 @@
       "id": "r16_m1",
       "round": "r16",
       "homeTeam": "CAN",
-      "awayTeam": null,
+      "awayTeam": "MAR",
       "winner": null,
       "completed": false
     },
     {
       "id": "r16_m2",
       "round": "r16",
-      "homeTeam": null,
+      "homeTeam": "PAR",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -199,7 +199,7 @@
     {
       "id": "r16_m3",
       "round": "r16",
-      "homeTeam": null,
+      "homeTeam": "BRA",
       "awayTeam": null,
       "winner": null,
       "completed": false
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-30T05:24:10.321Z"
+  "lastUpdated": "2026-06-30T07:18:56.707Z"
 }

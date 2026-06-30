@@ -833,7 +833,7 @@
       "group": null,
       "homeTeam": "NED",
       "awayTeam": "MAR",
-      "homeScore": 4,
+      "homeScore": 3,
       "awayScore": 4
     },
     {
@@ -975,7 +975,7 @@
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "CAN",
-      "awayTeam": null,
+      "awayTeam": "MAR",
       "homeScore": null,
       "awayScore": null
     },
@@ -985,7 +985,7 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "PAR",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -996,7 +996,7 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "BRA",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-30T05:24:10.321Z"
+  "lastUpdated": "2026-06-30T07:18:56.707Z"
 }
