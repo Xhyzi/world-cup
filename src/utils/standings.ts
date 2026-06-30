@@ -266,10 +266,14 @@ export function resolveEffectiveResults(
         ? computeBestThirds(groups, standingsByGroup, matches.matches)
         : [];
 
+  const knockoutStarted = results.knockoutMatches.some(
+    (match) => match.completed || match.homeTeam !== null,
+  );
+
   const phase =
     results.phase === 'finished'
       ? 'finished'
-      : allComplete || results.phase === 'knockout'
+      : allComplete || results.phase === 'knockout' || knockoutStarted
         ? 'knockout'
         : 'groups';
 

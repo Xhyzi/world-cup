@@ -302,7 +302,7 @@ export function ParticipantPage() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
           <KnockoutPredictions
             participant={participant}
-            results={results}
+            results={effectiveResults}
             teams={teams}
           />
         </div>

@@ -3,6 +3,8 @@ import { BracketMatch } from "../components/knockout/BracketMatch";
 import { ParticipantName } from "../components/participant/ParticipantName";
 import type { RoundKey } from "../types";
 import { ROUND_POINTS } from "../utils/scoring";
+import { resolveEffectiveResults } from "../utils/standings";
+import { isKnockoutPhase } from "../utils/phase";
 
 const ROUND_LABELS: Record<RoundKey, string> = {
   r32: "Dieciseisavos de final",
@@ -16,7 +18,7 @@ const ROUND_LABELS: Record<RoundKey, string> = {
 const ROUND_ORDER: RoundKey[] = ["r32", "r16", "qf", "sf", "third", "final"];
 
 export function KnockoutPage() {
-  const { participants, results, teams, loading, error } = useData();
+  const { participants, results, teams, groups, matches, loading, error } = useData();
 
   if (loading) {
     return (
@@ -36,7 +38,9 @@ export function KnockoutPage() {
     );
   }
 
-  if (results.phase === "groups") {
+  const effectiveResults = resolveEffectiveResults(groups, results, matches);
+
+  if (!isKnockoutPhase(effectiveResults, participants)) {
     return (
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -84,7 +88,7 @@ export function KnockoutPage() {
 
       <div className="space-y-8">
         {ROUND_ORDER.map((round) => {
-          const matches = results.knockoutMatches.filter(
+          const matches = effectiveResults.knockoutMatches.filter(
             (m) => m.round === round,
           );
           if (matches.length === 0) return null;

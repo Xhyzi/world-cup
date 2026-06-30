@@ -1,4 +1,5 @@
 import type { Participant, Results, Team } from "../../types";
+import { hasKnockoutPredictions, isKnockoutPhase } from "../../utils/phase";
 import { FlagIcon } from "../FlagIcon";
 
 interface GroupPredictionCardProps {
@@ -241,14 +242,16 @@ export function KnockoutPredictions({
   teams,
 }: KnockoutPredictionsProps) {
   const rounds = ["r32", "r16", "qf", "sf", "third", "final"];
-  const hasKnockout = Object.keys(participant.knockoutPredictions).length > 0;
+  const hasPredictions = hasKnockoutPredictions(participant.knockoutPredictions);
+  const knockoutActive = isKnockoutPhase(results);
 
-  if (!hasKnockout) {
+  if (!hasPredictions) {
     return (
       <div className="bg-indigo-50 dark:bg-blue-900/20 border border-indigo-100 dark:border-blue-700 rounded-xl p-6 text-center">
         <p className="text-indigo-700 dark:text-blue-300 font-medium">
-          Las predicciones de la fase eliminatoria se añadirán cuando empiece
-          esa fase.
+          {knockoutActive
+            ? "Este participante aún no tiene predicciones de eliminatoria."
+            : "Las predicciones de la fase eliminatoria se añadirán cuando empiece esa fase."}
         </p>
       </div>
     );

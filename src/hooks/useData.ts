@@ -13,6 +13,23 @@ interface AppData {
 
 const BASE = import.meta.env.BASE_URL;
 
+function normalizeParticipant(raw: Participant): Participant {
+  return {
+    ...raw,
+    groupPredictions: raw.groupPredictions ?? {},
+    bestThirdPredictions: raw.bestThirdPredictions ?? [],
+    knockoutPredictions: raw.knockoutPredictions ?? {},
+  };
+}
+
+function fetchJson<T>(path: string, cacheBust: string): Promise<T> {
+  const url = cacheBust ? `${path}?v=${encodeURIComponent(cacheBust)}` : path;
+  return fetch(url, { cache: 'no-store' }).then((r) => {
+    if (!r.ok) throw new Error(`Failed to load ${path}`);
+    return r.json() as Promise<T>;
+  });
+}
+
 export function useData(): AppData {
   const [data, setData] = useState<AppData>({
     teams: [],
@@ -31,31 +48,38 @@ export function useData(): AppData {
   });
 
   useEffect(() => {
-    Promise.all([
-      fetch(`${BASE}data/teams.json`).then((r) => r.json()),
-      fetch(`${BASE}data/groups.json`).then((r) => r.json()),
-      fetch(`${BASE}data/predictions.json`).then((r) => r.json()),
-      fetch(`${BASE}data/results.json`).then((r) => r.json()),
-      fetch(`${BASE}data/matches.json`).then((r) => r.json()),
-    ])
-      .then(([teams, groups, predictions, results, matches]) => {
-        setData({
-          teams,
-          groups,
-          participants: predictions.participants,
-          results,
-          matches,
-          loading: false,
-          error: null,
-        });
-      })
-      .catch((err: unknown) => {
-        setData((prev) => ({
-          ...prev,
-          loading: false,
-          error: err instanceof Error ? err.message : 'Error loading data',
-        }));
+    const load = async () => {
+      const results = await fetchJson<Results>(`${BASE}data/results.json`, '');
+      const cacheBust = results.lastUpdated || String(Date.now());
+
+      const [teams, groups, predictions, matches] = await Promise.all([
+        fetchJson<Team[]>(`${BASE}data/teams.json`, cacheBust),
+        fetchJson<Group[]>(`${BASE}data/groups.json`, cacheBust),
+        fetchJson<{ participants: Participant[] }>(
+          `${BASE}data/predictions.json`,
+          cacheBust,
+        ),
+        fetchJson<MatchesData>(`${BASE}data/matches.json`, cacheBust),
+      ]);
+
+      setData({
+        teams,
+        groups,
+        participants: predictions.participants.map(normalizeParticipant),
+        results,
+        matches,
+        loading: false,
+        error: null,
       });
+    };
+
+    load().catch((err: unknown) => {
+      setData((prev) => ({
+        ...prev,
+        loading: false,
+        error: err instanceof Error ? err.message : 'Error loading data',
+      }));
+    });
   }, []);
 
   return data;
