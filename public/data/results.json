@@ -2,55 +2,124 @@
   "phase": "knockout",
   "groupResults": {
     "A": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "MEX",
+        "ZAF",
+        "KOR",
+        "CZE"
+      ],
+      "completed": true
     },
     "B": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "SUI",
+        "CAN",
+        "BIH",
+        "QAT"
+      ],
+      "completed": true
     },
     "C": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "BRA",
+        "MAR",
+        "SCO",
+        "HAI"
+      ],
+      "completed": true
     },
     "D": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "USA",
+        "AUS",
+        "PAR",
+        "TUR"
+      ],
+      "completed": true
     },
     "E": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "GER",
+        "CIV",
+        "ECU",
+        "CUW"
+      ],
+      "completed": true
     },
     "F": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "NED",
+        "JPN",
+        "SWE",
+        "TUN"
+      ],
+      "completed": true
     },
     "G": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "BEL",
+        "EGY",
+        "IRN",
+        "NZL"
+      ],
+      "completed": true
     },
     "H": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "ESP",
+        "CPV",
+        "URU",
+        "KSA"
+      ],
+      "completed": true
     },
     "I": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "FRA",
+        "NOR",
+        "SEN",
+        "IRQ"
+      ],
+      "completed": true
     },
     "J": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "ARG",
+        "AUT",
+        "ALG",
+        "JOR"
+      ],
+      "completed": true
     },
     "K": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "COL",
+        "POR",
+        "COD",
+        "UZB"
+      ],
+      "completed": true
     },
     "L": {
-      "standings": [],
-      "completed": false
+      "standings": [
+        "ENG",
+        "CRO",
+        "GHA",
+        "PAN"
+      ],
+      "completed": true
     }
   },
-  "bestThirds": [],
+  "bestThirds": [
+    "COD",
+    "SWE",
+    "ECU",
+    "GHA",
+    "BIH",
+    "ALG",
+    "PAR",
+    "SEN"
+  ],
   "knockoutMatches": [
     {
       "id": "r32_m1",
@@ -309,5 +378,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-30T11:44:57.703Z"
+  "lastUpdated": "2026-06-30T12:41:40.245Z"
 }
