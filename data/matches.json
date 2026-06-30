@@ -839,13 +839,13 @@
     {
       "id": 537424,
       "utcDate": "2026-06-30T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "CIV",
       "awayTeam": "NOR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537416,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-30T12:41:40.209Z"
+  "lastUpdated": "2026-06-30T17:36:07.762Z"
 }
