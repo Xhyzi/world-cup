@@ -828,13 +828,13 @@
     {
       "id": 537418,
       "utcDate": "2026-06-30T01:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "NED",
       "awayTeam": "MAR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537424,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-06-30T00:42:11.281Z"
+  "lastUpdated": "2026-06-30T01:42:20.779Z"
 }
