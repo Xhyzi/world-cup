@@ -34,6 +34,8 @@ export interface KnockoutMatch {
   awayTeam: string | null;
   winner: string | null;
   completed: boolean;
+  /** football-data.org match id — stable link to API fixture */
+  apiMatchId?: number;
 }
 
 export interface Results {

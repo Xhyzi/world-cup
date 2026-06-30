@@ -8,6 +8,7 @@ import path from 'node:path';
 import https from 'node:https';
 import { fileURLToPath } from 'node:url';
 import { syncGroupResultsFromMatches } from './standings-utils.js';
+import { syncKnockoutMatchesFromApi } from './knockout-utils.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -129,42 +130,8 @@ async function main() {
   const groups = JSON.parse(fs.readFileSync(GROUPS_PATH, 'utf8'));
   syncGroupResultsFromMatches(current, groups, matchesData.matches);
 
-  // Update knockout matches
-  const stageMap = {
-    'LAST_32': 'r32',
-    'LAST_16': 'r16',
-    'QUARTER_FINALS': 'qf',
-    'SEMI_FINALS': 'sf',
-    'THIRD_PLACE': 'third',
-    'FINAL': 'final',
-  };
-
-  const knockoutMatches = matches.filter((m) => stageMap[m.stage]);
-
-  // Sort by date and assign to our sequential IDs
-  const byRound = {};
-  for (const m of knockoutMatches) {
-    const round = stageMap[m.stage];
-    if (!byRound[round]) byRound[round] = [];
-    byRound[round].push(m);
-  }
-
-  for (const round of Object.keys(byRound)) {
-    byRound[round].sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
-    byRound[round].forEach((m, i) => {
-      const matchId = `${round === 'third' || round === 'final' ? round : round}_m${i + 1}`;
-      const existing = current.knockoutMatches.find((km) => km.id === matchId);
-      if (!existing) return;
-      existing.homeTeam = normalizeTeamId(m.homeTeam?.tla);
-      existing.awayTeam = normalizeTeamId(m.awayTeam?.tla);
-      existing.completed = m.status === 'FINISHED';
-      existing.winner = m.status === 'FINISHED'
-        ? normalizeTeamId(
-            m.score.winner === 'HOME_TEAM' ? m.homeTeam?.tla : m.awayTeam?.tla,
-          )
-        : null;
-    });
-  }
+  // Update knockout matches — match by apiMatchId / team pair / bracket feeders, never by date
+  syncKnockoutMatchesFromApi(current.knockoutMatches, matches, normalizeTeamId);
 
   const previousResults = JSON.parse(fs.readFileSync(RESULTS_PATH, 'utf8'));
   const previousMatches = JSON.parse(fs.readFileSync(MATCHES_PATH, 'utf8'));
