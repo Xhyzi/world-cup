@@ -73,8 +73,8 @@
       "round": "r32",
       "homeTeam": "GER",
       "awayTeam": "PAR",
-      "winner": null,
-      "completed": false
+      "winner": "PAR",
+      "completed": true
     },
     {
       "id": "r32_m4",
@@ -309,5 +309,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-29T23:22:57.641Z"
+  "lastUpdated": "2026-06-30T00:42:11.281Z"
 }
