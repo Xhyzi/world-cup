@@ -839,13 +839,13 @@
     {
       "id": 537424,
       "utcDate": "2026-06-30T17:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "CIV",
       "awayTeam": "NOR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 1,
+      "awayScore": 2
     },
     {
       "id": 537416,
@@ -986,7 +986,7 @@
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "PAR",
-      "awayTeam": null,
+      "awayTeam": "FRA",
       "homeScore": null,
       "awayScore": null
     },
@@ -997,7 +997,7 @@
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "BRA",
-      "awayTeam": null,
+      "awayTeam": "NOR",
       "homeScore": null,
       "awayScore": null
     },
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-01T05:33:25.910Z"
+  "lastUpdated": "2026-07-01T07:30:54.539Z"
 }
