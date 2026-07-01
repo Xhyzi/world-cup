@@ -889,7 +889,7 @@
       "homeTeam": "BEL",
       "awayTeam": "SEN",
       "homeScore": 0,
-      "awayScore": 1
+      "awayScore": 2
     },
     {
       "id": 537421,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-01T20:35:28.045Z"
+  "lastUpdated": "2026-07-01T21:32:37.489Z"
 }
