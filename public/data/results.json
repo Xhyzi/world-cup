@@ -135,8 +135,8 @@
       "round": "r32",
       "homeTeam": "FRA",
       "awayTeam": "SWE",
-      "winner": null,
-      "completed": false,
+      "winner": "FRA",
+      "completed": true,
       "apiMatchId": 537416
     },
     {
@@ -216,8 +216,8 @@
       "round": "r32",
       "homeTeam": "MEX",
       "awayTeam": "ECU",
-      "winner": null,
-      "completed": false,
+      "winner": "MEX",
+      "completed": true,
       "apiMatchId": 537425
     },
     {
@@ -397,5 +397,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-06-30T12:41:40.245Z"
+  "lastUpdated": "2026-07-01T05:33:25.969Z"
 }
