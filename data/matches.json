@@ -872,13 +872,13 @@
     {
       "id": 537426,
       "utcDate": "2026-07-01T16:00:00Z",
-      "status": "TIMED",
+      "status": "LIVE",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "ENG",
       "awayTeam": "COD",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": 537422,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-01T07:30:54.539Z"
+  "lastUpdated": "2026-07-01T16:47:36.883Z"
 }
