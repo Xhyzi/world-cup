@@ -883,12 +883,12 @@
     {
       "id": 537422,
       "utcDate": "2026-07-01T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "BEL",
       "awayTeam": "SEN",
-      "homeScore": 0,
+      "homeScore": 2,
       "awayScore": 2
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-01T21:32:37.489Z"
+  "lastUpdated": "2026-07-01T22:29:29.455Z"
 }
