@@ -189,8 +189,8 @@
       "round": "r32",
       "homeTeam": "BEL",
       "awayTeam": "SEN",
-      "winner": null,
-      "completed": false,
+      "winner": "BEL",
+      "completed": true,
       "apiMatchId": 537422
     },
     {
@@ -397,5 +397,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-01T22:29:29.503Z"
+  "lastUpdated": "2026-07-01T23:30:11.909Z"
 }
