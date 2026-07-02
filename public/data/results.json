@@ -180,8 +180,8 @@
       "round": "r32",
       "homeTeam": "USA",
       "awayTeam": "BIH",
-      "winner": null,
-      "completed": false,
+      "winner": "USA",
+      "completed": true,
       "apiMatchId": 537421
     },
     {
@@ -397,5 +397,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-02T01:42:00.472Z"
+  "lastUpdated": "2026-07-02T03:06:39.440Z"
 }
