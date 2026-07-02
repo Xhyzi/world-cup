@@ -899,7 +899,7 @@
       "group": null,
       "homeTeam": "USA",
       "awayTeam": "BIH",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-02T00:41:51.281Z"
+  "lastUpdated": "2026-07-02T01:42:00.418Z"
 }
