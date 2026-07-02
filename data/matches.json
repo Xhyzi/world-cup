@@ -1007,8 +1007,8 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "MEX",
+      "awayTeam": "ENG",
       "homeScore": null,
       "awayScore": null
     },
@@ -1029,8 +1029,8 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "USA",
+      "awayTeam": "BEL",
       "homeScore": null,
       "awayScore": null
     },
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-02T05:19:46.425Z"
+  "lastUpdated": "2026-07-02T07:08:29.191Z"
 }
