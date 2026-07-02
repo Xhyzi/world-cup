@@ -171,8 +171,8 @@
       "round": "r32",
       "homeTeam": "ESP",
       "awayTeam": "AUT",
-      "winner": null,
-      "completed": false,
+      "winner": "ESP",
+      "completed": true,
       "apiMatchId": 537420
     },
     {
@@ -399,5 +399,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-02T20:29:11.517Z"
+  "lastUpdated": "2026-07-02T21:25:42.389Z"
 }
