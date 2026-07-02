@@ -905,13 +905,13 @@
     {
       "id": 537420,
       "utcDate": "2026-07-02T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "ESP",
       "awayTeam": "AUT",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 1,
+      "awayScore": 0
     },
     {
       "id": 537419,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-02T07:08:29.191Z"
+  "lastUpdated": "2026-07-02T20:29:11.466Z"
 }
