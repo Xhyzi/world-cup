@@ -162,8 +162,8 @@
       "round": "r32",
       "homeTeam": "POR",
       "awayTeam": "CRO",
-      "winner": null,
-      "completed": false,
+      "winner": "POR",
+      "completed": true,
       "apiMatchId": 537419
     },
     {
@@ -399,5 +399,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-03T00:34:54.289Z"
+  "lastUpdated": "2026-07-03T01:34:31.244Z"
 }
