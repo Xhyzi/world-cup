@@ -916,12 +916,12 @@
     {
       "id": 537419,
       "utcDate": "2026-07-02T23:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "POR",
       "awayTeam": "CRO",
-      "homeScore": 1,
+      "homeScore": 2,
       "awayScore": 1
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-03T00:34:54.234Z"
+  "lastUpdated": "2026-07-03T01:34:31.194Z"
 }
