@@ -252,8 +252,8 @@
       "round": "r32",
       "homeTeam": "SUI",
       "awayTeam": "ALG",
-      "winner": null,
-      "completed": false,
+      "winner": "SUI",
+      "completed": true,
       "apiMatchId": 537429
     },
     {
@@ -399,5 +399,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-03T03:04:56.572Z"
+  "lastUpdated": "2026-07-03T05:17:55.622Z"
 }
