@@ -954,7 +954,7 @@
       "group": null,
       "homeTeam": "ARG",
       "awayTeam": "CPV",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-03T22:21:53.043Z"
+  "lastUpdated": "2026-07-03T23:23:14.901Z"
 }
