@@ -938,13 +938,13 @@
     {
       "id": 537428,
       "utcDate": "2026-07-03T18:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "AUS",
       "awayTeam": "EGY",
-      "homeScore": 1,
-      "awayScore": 1
+      "homeScore": 3,
+      "awayScore": 5
     },
     {
       "id": 537427,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-03T20:25:42.935Z"
+  "lastUpdated": "2026-07-03T21:25:29.472Z"
 }
