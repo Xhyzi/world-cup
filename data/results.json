@@ -243,8 +243,8 @@
       "round": "r32",
       "homeTeam": "AUS",
       "awayTeam": "EGY",
-      "winner": null,
-      "completed": false,
+      "winner": "EGY",
+      "completed": true,
       "apiMatchId": 537428
     },
     {
@@ -399,5 +399,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-03T20:25:42.992Z"
+  "lastUpdated": "2026-07-03T21:25:29.524Z"
 }
