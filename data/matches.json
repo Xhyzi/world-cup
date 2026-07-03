@@ -921,8 +921,8 @@
       "group": null,
       "homeTeam": "POR",
       "awayTeam": "CRO",
-      "homeScore": 0,
-      "awayScore": 0
+      "homeScore": 1,
+      "awayScore": 1
     },
     {
       "id": 537429,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-02T23:24:46.590Z"
+  "lastUpdated": "2026-07-03T00:34:54.234Z"
 }
