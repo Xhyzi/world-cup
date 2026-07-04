@@ -234,8 +234,8 @@
       "round": "r32",
       "homeTeam": "ARG",
       "awayTeam": "CPV",
-      "winner": null,
-      "completed": false,
+      "winner": "ARG",
+      "completed": true,
       "apiMatchId": 537427
     },
     {
@@ -399,5 +399,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-04T00:34:04.329Z"
+  "lastUpdated": "2026-07-04T01:34:49.738Z"
 }
