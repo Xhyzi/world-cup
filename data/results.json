@@ -261,8 +261,8 @@
       "round": "r32",
       "homeTeam": "COL",
       "awayTeam": "GHA",
-      "winner": null,
-      "completed": false,
+      "winner": "COL",
+      "completed": true,
       "apiMatchId": 537430
     },
     {
@@ -399,5 +399,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-04T03:04:33.863Z"
+  "lastUpdated": "2026-07-04T05:16:38.738Z"
 }
