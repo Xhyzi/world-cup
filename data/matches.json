@@ -949,12 +949,12 @@
     {
       "id": 537427,
       "utcDate": "2026-07-03T22:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "ARG",
       "awayTeam": "CPV",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 2
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T00:34:04.275Z"
+  "lastUpdated": "2026-07-04T01:34:49.687Z"
 }
