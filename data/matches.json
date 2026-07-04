@@ -977,7 +977,7 @@
       "homeTeam": "CAN",
       "awayTeam": "MAR",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1
     },
     {
       "id": 537375,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T17:23:17.686Z"
+  "lastUpdated": "2026-07-04T18:21:40.181Z"
 }
