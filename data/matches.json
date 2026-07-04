@@ -1018,8 +1018,8 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "POR",
+      "awayTeam": "ESP",
       "homeScore": null,
       "awayScore": null
     },
@@ -1040,8 +1040,8 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ARG",
+      "awayTeam": "EGY",
       "homeScore": null,
       "awayScore": null
     },
@@ -1051,8 +1051,8 @@
       "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "SUI",
+      "awayTeam": "COL",
       "homeScore": null,
       "awayScore": null
     },
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T05:16:38.688Z"
+  "lastUpdated": "2026-07-04T07:00:57.818Z"
 }

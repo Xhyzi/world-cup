@@ -286,10 +286,11 @@
     {
       "id": "r16_m3",
       "round": "r16",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "POR",
+      "awayTeam": "ESP",
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537379
     },
     {
       "id": "r16_m4",
@@ -321,18 +322,20 @@
     {
       "id": "r16_m7",
       "round": "r16",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ARG",
+      "awayTeam": "EGY",
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537381
     },
     {
       "id": "r16_m8",
       "round": "r16",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "SUI",
+      "awayTeam": "COL",
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537382
     },
     {
       "id": "qf_m1",
@@ -399,5 +402,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-04T05:16:38.738Z"
+  "lastUpdated": "2026-07-04T07:00:57.866Z"
 }
