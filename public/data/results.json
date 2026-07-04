@@ -270,8 +270,8 @@
       "round": "r16",
       "homeTeam": "PAR",
       "awayTeam": "FRA",
-      "winner": null,
-      "completed": false,
+      "winner": "FRA",
+      "completed": true,
       "apiMatchId": 537375
     },
     {
@@ -402,5 +402,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-04T22:19:19.057Z"
+  "lastUpdated": "2026-07-04T23:21:04.917Z"
 }
