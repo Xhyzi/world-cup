@@ -971,13 +971,13 @@
     {
       "id": 537376,
       "utcDate": "2026-07-04T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "CAN",
       "awayTeam": "MAR",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537375,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T07:00:57.818Z"
+  "lastUpdated": "2026-07-04T17:23:17.686Z"
 }
