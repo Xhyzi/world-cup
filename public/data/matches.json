@@ -982,13 +982,13 @@
     {
       "id": 537375,
       "utcDate": "2026-07-04T21:00:00Z",
-      "status": "TIMED",
+      "status": "LIVE",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "PAR",
       "awayTeam": "FRA",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537377,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T19:29:07.231Z"
+  "lastUpdated": "2026-07-04T21:19:55.138Z"
 }
