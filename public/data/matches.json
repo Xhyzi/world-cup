@@ -960,12 +960,12 @@
     {
       "id": 537430,
       "utcDate": "2026-07-04T01:30:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "homeTeam": "COL",
       "awayTeam": "GHA",
-      "homeScore": 2,
+      "homeScore": 1,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T03:04:33.810Z"
+  "lastUpdated": "2026-07-04T05:16:38.688Z"
 }
