@@ -993,7 +993,7 @@
     {
       "id": 537377,
       "utcDate": "2026-07-05T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "LIVE",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "BRA",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-05T20:24:49.307Z"
+  "lastUpdated": "2026-07-05T21:23:21.254Z"
 }
