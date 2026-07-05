@@ -306,8 +306,8 @@
       "round": "r16",
       "homeTeam": "BRA",
       "awayTeam": "NOR",
-      "winner": null,
-      "completed": false,
+      "winner": "NOR",
+      "completed": true,
       "apiMatchId": 537377
     },
     {
@@ -403,5 +403,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-05T21:23:21.306Z"
+  "lastUpdated": "2026-07-05T22:21:13.301Z"
 }
