@@ -1062,8 +1062,8 @@
       "status": "TIMED",
       "stage": "QUARTER_FINALS",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "FRA",
+      "awayTeam": "MAR",
       "homeScore": null,
       "awayScore": null
     },
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-04T23:21:04.867Z"
+  "lastUpdated": "2026-07-05T07:06:39.734Z"
 }
