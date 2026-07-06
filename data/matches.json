@@ -1003,8 +1003,8 @@
     },
     {
       "id": 537378,
-      "utcDate": "2026-07-06T00:00:00Z",
-      "status": "TIMED",
+      "utcDate": "2026-07-06T01:00:00Z",
+      "status": "2026-07-06 01:00:00Z",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "MEX",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-05T22:21:13.248Z"
+  "lastUpdated": "2026-07-06T00:35:57.481Z"
 }
