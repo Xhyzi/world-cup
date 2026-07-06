@@ -1004,7 +1004,7 @@
     {
       "id": 537378,
       "utcDate": "2026-07-06T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "MEX",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-06T03:07:01.351Z"
+  "lastUpdated": "2026-07-06T05:27:45.095Z"
 }
