@@ -288,8 +288,8 @@
       "round": "r16",
       "homeTeam": "POR",
       "awayTeam": "ESP",
-      "winner": null,
-      "completed": false,
+      "winner": "ESP",
+      "completed": true,
       "apiMatchId": 537379
     },
     {
@@ -404,5 +404,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-06T20:38:08.080Z"
+  "lastUpdated": "2026-07-06T21:32:08.808Z"
 }
