@@ -1015,13 +1015,13 @@
     {
       "id": 537379,
       "utcDate": "2026-07-06T19:00:00Z",
-      "status": "TIMED",
+      "status": "LIVE",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "POR",
       "awayTeam": "ESP",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537380,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-06T07:33:18.447Z"
+  "lastUpdated": "2026-07-06T19:33:19.213Z"
 }
