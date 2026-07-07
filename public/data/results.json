@@ -349,10 +349,11 @@
     {
       "id": "qf_m2",
       "round": "qf",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ESP",
+      "awayTeam": "BEL",
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537384
     },
     {
       "id": "qf_m3",
@@ -404,5 +405,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-07T05:20:03.800Z"
+  "lastUpdated": "2026-07-07T07:11:57.842Z"
 }
