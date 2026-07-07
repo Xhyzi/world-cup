@@ -324,8 +324,8 @@
       "round": "r16",
       "homeTeam": "ARG",
       "awayTeam": "EGY",
-      "winner": null,
-      "completed": false,
+      "winner": "ARG",
+      "completed": true,
       "apiMatchId": 537381
     },
     {
@@ -405,5 +405,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-07T17:39:21.221Z"
+  "lastUpdated": "2026-07-07T18:41:26.643Z"
 }

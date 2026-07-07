@@ -1037,12 +1037,12 @@
     {
       "id": 537381,
       "utcDate": "2026-07-07T16:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "ARG",
       "awayTeam": "EGY",
-      "homeScore": 0,
+      "homeScore": 3,
       "awayScore": 2
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-07T17:39:21.166Z"
+  "lastUpdated": "2026-07-07T18:41:26.589Z"
 }
