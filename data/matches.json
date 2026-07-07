@@ -1048,13 +1048,13 @@
     {
       "id": 537382,
       "utcDate": "2026-07-07T20:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "LAST_16",
       "group": null,
       "homeTeam": "SUI",
       "awayTeam": "COL",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 537383,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-07T18:41:26.589Z"
+  "lastUpdated": "2026-07-07T20:35:42.030Z"
 }
