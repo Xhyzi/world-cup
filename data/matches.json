@@ -1032,7 +1032,7 @@
       "homeTeam": "USA",
       "awayTeam": "BEL",
       "homeScore": 1,
-      "awayScore": 1
+      "awayScore": 3
     },
     {
       "id": 537381,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-07T00:36:35.636Z"
+  "lastUpdated": "2026-07-07T01:35:04.312Z"
 }
