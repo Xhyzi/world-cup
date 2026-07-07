@@ -333,8 +333,8 @@
       "round": "r16",
       "homeTeam": "SUI",
       "awayTeam": "COL",
-      "winner": null,
-      "completed": false,
+      "winner": "COL",
+      "completed": true,
       "apiMatchId": 537382
     },
     {
@@ -405,5 +405,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-07T22:24:31.029Z"
+  "lastUpdated": "2026-07-07T23:20:36.809Z"
 }
