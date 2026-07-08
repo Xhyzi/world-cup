@@ -333,7 +333,7 @@
       "round": "r16",
       "homeTeam": "SUI",
       "awayTeam": "COL",
-      "winner": "COL",
+      "winner": "SUI",
       "completed": true,
       "apiMatchId": 537382
     },
@@ -367,10 +367,11 @@
     {
       "id": "qf_m4",
       "round": "qf",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ARG",
+      "awayTeam": "SUI",
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537386
     },
     {
       "id": "sf_m1",
@@ -405,5 +406,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-08T05:04:26.448Z"
+  "lastUpdated": "2026-07-08T06:50:36.281Z"
 }

@@ -1095,8 +1095,8 @@
       "status": "TIMED",
       "stage": "QUARTER_FINALS",
       "group": null,
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ARG",
+      "awayTeam": "SUI",
       "homeScore": null,
       "awayScore": null
     },
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-07T23:20:36.750Z"
+  "lastUpdated": "2026-07-08T06:50:36.231Z"
 }
