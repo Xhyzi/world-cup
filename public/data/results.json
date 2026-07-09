@@ -342,8 +342,8 @@
       "round": "qf",
       "homeTeam": "FRA",
       "awayTeam": "MAR",
-      "winner": null,
-      "completed": false,
+      "winner": "FRA",
+      "completed": true,
       "apiMatchId": 537383
     },
     {
@@ -406,5 +406,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-09T21:30:23.768Z"
+  "lastUpdated": "2026-07-09T22:30:42.466Z"
 }
