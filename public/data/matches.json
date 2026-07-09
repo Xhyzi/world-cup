@@ -1064,7 +1064,7 @@
       "group": null,
       "homeTeam": "FRA",
       "awayTeam": "MAR",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0
     },
     {
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-09T20:34:58.098Z"
+  "lastUpdated": "2026-07-09T21:30:23.710Z"
 }
