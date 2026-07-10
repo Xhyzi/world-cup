@@ -351,8 +351,8 @@
       "round": "qf",
       "homeTeam": "ESP",
       "awayTeam": "BEL",
-      "winner": null,
-      "completed": false,
+      "winner": "ESP",
+      "completed": true,
       "apiMatchId": 537384
     },
     {
@@ -407,5 +407,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-10T20:31:30.115Z"
+  "lastUpdated": "2026-07-10T21:23:34.678Z"
 }
