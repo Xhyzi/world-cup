@@ -1106,7 +1106,7 @@
       "status": "TIMED",
       "stage": "SEMI_FINALS",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "FRA",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-09T22:30:42.415Z"
+  "lastUpdated": "2026-07-10T07:11:22.971Z"
 }
