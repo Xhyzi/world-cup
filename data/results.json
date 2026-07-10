@@ -376,10 +376,11 @@
     {
       "id": "sf_m1",
       "round": "sf",
-      "homeTeam": null,
+      "homeTeam": "FRA",
       "awayTeam": null,
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537387
     },
     {
       "id": "sf_m2",
@@ -406,5 +407,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-10T05:20:12.280Z"
+  "lastUpdated": "2026-07-10T07:11:23.023Z"
 }
