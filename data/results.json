@@ -315,8 +315,8 @@
       "round": "r16",
       "homeTeam": "MEX",
       "awayTeam": "ENG",
-      "winner": "ENG",
-      "completed": true,
+      "winner": null,
+      "completed": false,
       "apiMatchId": 537378
     },
     {
@@ -407,5 +407,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-11T20:17:32.969Z"
+  "lastUpdated": "2026-07-11T21:17:00.475Z"
 }
