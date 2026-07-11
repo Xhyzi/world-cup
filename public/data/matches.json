@@ -1107,7 +1107,7 @@
       "stage": "SEMI_FINALS",
       "group": null,
       "homeTeam": "FRA",
-      "awayTeam": null,
+      "awayTeam": "ESP",
       "homeScore": null,
       "awayScore": null
     },
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-10T21:23:34.628Z"
+  "lastUpdated": "2026-07-11T06:46:19.039Z"
 }
