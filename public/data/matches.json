@@ -1087,7 +1087,7 @@
       "homeTeam": "NOR",
       "awayTeam": "ENG",
       "homeScore": 1,
-      "awayScore": 1
+      "awayScore": 2
     },
     {
       "id": 537386,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-11T22:16:52.588Z"
+  "lastUpdated": "2026-07-11T23:18:10.315Z"
 }
