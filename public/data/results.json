@@ -360,8 +360,8 @@
       "round": "qf",
       "homeTeam": "NOR",
       "awayTeam": "ENG",
-      "winner": null,
-      "completed": false,
+      "winner": "ENG",
+      "completed": true,
       "apiMatchId": 537385
     },
     {
@@ -407,5 +407,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-11T23:18:10.371Z"
+  "lastUpdated": "2026-07-12T00:31:42.823Z"
 }
