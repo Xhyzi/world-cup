@@ -1081,7 +1081,7 @@
     {
       "id": 537385,
       "utcDate": "2026-07-11T21:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "QUARTER_FINALS",
       "group": null,
       "homeTeam": "NOR",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-11T23:18:10.315Z"
+  "lastUpdated": "2026-07-12T00:31:42.771Z"
 }
