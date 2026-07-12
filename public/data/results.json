@@ -315,8 +315,8 @@
       "round": "r16",
       "homeTeam": "MEX",
       "awayTeam": "ENG",
-      "winner": null,
-      "completed": false,
+      "winner": "ENG",
+      "completed": true,
       "apiMatchId": 537378
     },
     {
@@ -385,10 +385,11 @@
     {
       "id": "sf_m2",
       "round": "sf",
-      "homeTeam": null,
-      "awayTeam": null,
+      "homeTeam": "ENG",
+      "awayTeam": "ARG",
       "winner": null,
-      "completed": false
+      "completed": false,
+      "apiMatchId": 537388
     },
     {
       "id": "third_m1",
@@ -407,5 +408,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-12T05:04:47.313Z"
+  "lastUpdated": "2026-07-12T06:53:52.805Z"
 }
