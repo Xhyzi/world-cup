@@ -1098,7 +1098,7 @@
       "homeTeam": "ARG",
       "awayTeam": "SUI",
       "homeScore": 1,
-      "awayScore": 0
+      "awayScore": 1
     },
     {
       "id": 537387,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-12T01:34:08.067Z"
+  "lastUpdated": "2026-07-12T03:03:55.204Z"
 }
