@@ -369,8 +369,8 @@
       "round": "qf",
       "homeTeam": "ARG",
       "awayTeam": "SUI",
-      "winner": null,
-      "completed": false,
+      "winner": "ARG",
+      "completed": true,
       "apiMatchId": 537386
     },
     {
@@ -407,5 +407,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-12T03:03:55.296Z"
+  "lastUpdated": "2026-07-12T05:04:47.313Z"
 }
