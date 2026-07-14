@@ -1103,13 +1103,13 @@
     {
       "id": 537387,
       "utcDate": "2026-07-14T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "SEMI_FINALS",
       "group": null,
       "homeTeam": "FRA",
       "awayTeam": "ESP",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": 537388,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-12T06:53:52.752Z"
+  "lastUpdated": "2026-07-14T19:30:27.835Z"
 }
