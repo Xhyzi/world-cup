@@ -1103,7 +1103,7 @@
     {
       "id": 537387,
       "utcDate": "2026-07-14T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "SEMI_FINALS",
       "group": null,
       "homeTeam": "FRA",
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-14T20:25:13.056Z"
+  "lastUpdated": "2026-07-14T21:20:48.933Z"
 }
