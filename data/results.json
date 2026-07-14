@@ -378,8 +378,8 @@
       "round": "sf",
       "homeTeam": "FRA",
       "awayTeam": "ESP",
-      "winner": null,
-      "completed": false,
+      "winner": "ESP",
+      "completed": true,
       "apiMatchId": 537387
     },
     {
@@ -408,5 +408,5 @@
       "completed": false
     }
   ],
-  "lastUpdated": "2026-07-14T20:25:13.094Z"
+  "lastUpdated": "2026-07-14T21:20:48.989Z"
 }
