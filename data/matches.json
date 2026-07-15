@@ -1114,13 +1114,13 @@
     {
       "id": 537388,
       "utcDate": "2026-07-15T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "SEMI_FINALS",
       "group": null,
       "homeTeam": "ENG",
       "awayTeam": "ARG",
       "homeScore": 1,
-      "awayScore": 0
+      "awayScore": 2
     },
     {
       "id": 537389,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-15T20:22:34.846Z"
+  "lastUpdated": "2026-07-15T21:21:09.814Z"
 }

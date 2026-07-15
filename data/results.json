@@ -387,8 +387,8 @@
       "round": "sf",
       "homeTeam": "ENG",
       "awayTeam": "ARG",
-      "winner": null,
-      "completed": false,
+      "winner": "ARG",
+      "completed": true,
       "apiMatchId": 537388
     },
     {
@@ -409,5 +409,5 @@
       "apiMatchId": 537390
     }
   ],
-  "lastUpdated": "2026-07-15T20:22:34.903Z"
+  "lastUpdated": "2026-07-15T21:21:09.862Z"
 }
