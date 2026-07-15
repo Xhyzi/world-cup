@@ -1128,7 +1128,7 @@
       "status": "TIMED",
       "stage": "THIRD_PLACE",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "FRA",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
@@ -1139,11 +1139,11 @@
       "status": "TIMED",
       "stage": "FINAL",
       "group": null,
-      "homeTeam": null,
+      "homeTeam": "ESP",
       "awayTeam": null,
       "homeScore": null,
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-14T21:20:48.933Z"
+  "lastUpdated": "2026-07-15T06:45:50.688Z"
 }
