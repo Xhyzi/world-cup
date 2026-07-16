@@ -403,11 +403,11 @@
       "id": "final_m1",
       "round": "final",
       "homeTeam": "ESP",
-      "awayTeam": null,
+      "awayTeam": "ARG",
       "winner": null,
       "completed": false,
       "apiMatchId": 537390
     }
   ],
-  "lastUpdated": "2026-07-16T05:02:46.016Z"
+  "lastUpdated": "2026-07-16T06:49:51.053Z"
 }

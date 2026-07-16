@@ -1129,7 +1129,7 @@
       "stage": "THIRD_PLACE",
       "group": null,
       "homeTeam": "FRA",
-      "awayTeam": null,
+      "awayTeam": "ENG",
       "homeScore": null,
       "awayScore": null
     },
@@ -1140,10 +1140,10 @@
       "stage": "FINAL",
       "group": null,
       "homeTeam": "ESP",
-      "awayTeam": null,
+      "awayTeam": "ARG",
       "homeScore": null,
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-15T21:21:09.814Z"
+  "lastUpdated": "2026-07-16T06:49:50.994Z"
 }
