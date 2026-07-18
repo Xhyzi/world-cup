@@ -1125,13 +1125,13 @@
     {
       "id": 537389,
       "utcDate": "2026-07-18T21:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "THIRD_PLACE",
       "group": null,
       "homeTeam": "FRA",
       "awayTeam": "ENG",
-      "homeScore": null,
-      "awayScore": null
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": 537390,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-16T06:49:50.994Z"
+  "lastUpdated": "2026-07-18T21:17:14.589Z"
 }
