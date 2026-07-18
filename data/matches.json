@@ -1131,7 +1131,7 @@
       "homeTeam": "FRA",
       "awayTeam": "ENG",
       "homeScore": 0,
-      "awayScore": 1
+      "awayScore": 4
     },
     {
       "id": 537390,
@@ -1145,5 +1145,5 @@
       "awayScore": null
     }
   ],
-  "lastUpdated": "2026-07-18T21:17:14.589Z"
+  "lastUpdated": "2026-07-18T22:16:48.388Z"
 }
