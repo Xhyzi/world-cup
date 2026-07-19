@@ -1136,7 +1136,7 @@
     {
       "id": 537390,
       "utcDate": "2026-07-19T19:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "stage": "FINAL",
       "group": null,
       "homeTeam": "ESP",
@@ -1145,5 +1145,5 @@
       "awayScore": 0
     }
   ],
-  "lastUpdated": "2026-07-19T20:17:22.066Z"
+  "lastUpdated": "2026-07-19T21:17:15.427Z"
 }
