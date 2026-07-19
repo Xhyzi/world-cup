@@ -404,10 +404,10 @@
       "round": "final",
       "homeTeam": "ESP",
       "awayTeam": "ARG",
-      "winner": null,
-      "completed": false,
+      "winner": "ESP",
+      "completed": true,
       "apiMatchId": 537390
     }
   ],
-  "lastUpdated": "2026-07-19T21:17:15.483Z"
+  "lastUpdated": "2026-07-19T22:17:59.351Z"
 }
